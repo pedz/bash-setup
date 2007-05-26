@@ -1,0 +1,14 @@
+
+[[ -n "${debug}" ]] && echo ./env/eon
+
+
+export MANPATH=\
+/usr/man:\
+/usr/local/man:\
+/usr/local/ssl/man:\
+/usr/local/share/man
+
+# path to local copy of retain tools on truth
+export HPATH=/usr/local/retain/
+
+source $HOME/.bash/env/aix

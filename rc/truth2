@@ -1,0 +1,8 @@
+
+[[ -n "${debug}" ]] && echo ./rc/truth2
+
+
+start-v4
+start-dfs
+start-retain
+start-cmvc

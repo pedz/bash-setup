@@ -1,0 +1,6 @@
+
+[[ -n "${debug}" ]] && echo ./bash_nls
+
+
+export LANG=C
+export NLSPATH=/usr/lpp/msg/%L/%N:/usr/lpp/msg/english/%N

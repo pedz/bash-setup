@@ -1,0 +1,160 @@
+
+[[ -n "${debug}" ]] && echo ./bash_funcs
+
+
+function delete-path
+{
+    PATH="$( echo "${PATH}" | \
+	     sed -e "s%^${1%/}:%%" -e "s%:${1%/}:%:%" -e "s%:${1%/}\$%%" )"
+}
+
+function append-path
+{
+    delete-path "${1%/}"
+    PATH="${PATH}:${1%/}"
+}
+
+function prepend-path
+{
+    delete-path "${1%/}"
+    PATH="${1%/}:${PATH}"
+}
+
+start-epkg()
+{
+    append-path /gsa/ausgsa/projects/c/cjhs/labr
+}
+
+stop-epkg()
+{
+    delete-path /gsa/ausgsa/projects/c/cjhs/labr
+}
+
+stop-dfs()
+{
+    delete-path /usr/contrib/bin
+    delete-path /usr/prod/bin
+}
+
+start-dfs()
+{
+    append-path /usr/contrib/bin
+    append-path /usr/prod/bin
+}
+
+
+stop-afs()
+{
+    delete-path /usr/afs/bin
+    delete-path /afs/austin/local/bin
+}
+
+start-afs()
+{
+    append-path /usr/afs/bin
+    append-path /afs/austin/local/bin
+}
+
+stop-v4()
+{
+    delete-path /.../austin.ibm.com/fs/projects/aix/project/ode/bin
+}
+
+start-v4()
+{
+    append-path /.../austin.ibm.com/fs/projects/aix/project/ode/bin
+    CDPATH="$( echo "${CDPATH}" | sed -e 's%:[^:]*/sb/[^:]*%%g' )"
+    CDPATH="$( echo "${CDPATH}" | sed -e 's%:[^:]*/clone/[^:]*%%g' )"
+    CDPATH="${CDPATH}:${SOURCEBASE}"
+}
+
+stop-cmvc()
+{
+    unset CMVC_FAMILY
+    unset CMVC_BECOME
+    unset CMVC_RELEASE
+    unset CMVC_TOP
+    unset PROD
+    # PATH=$( echo "${PATH}" | \
+    #         sed -e s%:/usr/lpp/cmvc/bin:/usr/lpp/cmvc/samples%% )
+}
+
+start-cmvc()
+{
+    local cmvc_release="$CMVC_RELEASE"
+    stop-cmvc
+    export CMVC_RELEASE="$cmvc_release"
+    if [ -z "$CMVC_RELEASE" ] ; then
+	export CMVC_RELEASE=bos530
+	export blob="$blob 1"
+    fi
+    export CMVC_TOP=$BASE
+    export PROD=bos
+    export CMVC_FAMILY=aix
+    export CMVC_BECOME=pedzan
+    # PATH=$PATH:/usr/lpp/cmvc/bin:/usr/lpp/cmvc/samples
+}
+
+stop-retain()
+{
+    if [[ -n "${HPATH}" ]] ; then
+	delete-path "${HPATH}"
+    fi
+
+    unset CENTER
+    unset HPATH
+    unset LPMRDB
+    unset NOTPBQS
+    unset PMRDB
+    unset RETAREA
+    unset RETNAME
+    unset RETID
+    unset RETQUEUE
+    unset RET_PSAR
+
+    if alias retain >& /dev/null ; then
+	unalias retain
+    fi
+}
+
+start-retain()
+{
+    local hpath="${HPATH:-/.../austin.ibm.com/fs/projects/service/usr/bin/retain/}"
+    stop-retain
+
+    export CENTER=165
+    export HPATH="$hpath"
+    export LPMRDB=/home/pedzan/pmrs.local
+    export NOTPBQS="gaudin,165 ptty,165"
+    export PMRDB
+    export RETAREA=1QUA
+    export RETNAME="Perry Smith (pedz,165)"
+    export RETID=305356
+    export RETQUEUE=pedz,165
+    export RET_PSAR=1
+    export NQ="ptty,165"
+    export SCROWNER="Perry Smith T/L 793-5772"
+    export SCRTEAM="ptty,165"
+
+    prepend-path "${HPATH}"
+    alias retain='hlogin -q ${RETQUEUE} -r ${RETID}'
+}
+
+function back()
+{
+    pwd | sed -e "s%$BASE%$BASE/link%"
+}
+
+function dcd ()
+{
+  local cmd="$1"
+  shift
+  case $# in
+    0) command "$cmd";;
+    1) command "$cmd" "$1";;
+    2) local where=$( echo "${PWD}" | sed -e "s%$1%$2%" )
+       echo "${where}"
+       command "$cmd" $( echo "${PWD}" | sed -e "s%$1%$2%" );;
+    *) echo "Too many arguments to $cmd" 1>&2;;
+  esac
+}
