@@ -1,932 +1,3 @@
-cd 2
-scp truth:/tc/l3tcp/tty/75632,766,766/may11-1-75632/trace-out .
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-timelog
-wd
-pwd
-ls
-wc trace-out
-split -l 25000 trace-out
-ls
-egrep 'jas slih' trace-out | head
-egrep 'jas slih' trace-out | sed -e 's/.*(//' | sort -u
-egrep -l 'jas slih break at line 4462' x??
-ls
-tail xck
-pwd
-egrep -l 'jas wsrv ptr' x?? > J
-egrep wsrv trace-out |head
-egrep wput trace-out |head
-history|grep egrep
-egrep -l 'jas slih break at line 4462' x?? > K
-ls x??|wc
-wc K
-rm J K
-egrep -l 'jas wput ptr' x?? > J
-wc J
-egrep WRAP trace-out 
-pmrreturn -q krcmp,70x -H60 75632,766,766
-pwd
-tail xck
-egrep offlevel trace-out | sed -e 's/.*(/(/' | sort -u
-fgrep -l '(FFFF8000001E0000,0000) jas offlevel' x?? > J
-wc J
-grep 'FFFF8000001E0000.*proc ptr .* output' trace-out 
-grep 'FFFF8000001E0001.*proc ptr .* output' trace-out  | head
-egrep 'jas proc ptr.*output' | sed -e 's/.*(/(/' | sort -u
-egrep 'jas proc ptr.*output' | sed -e 's/.*(/(/' | sort -u
-egrep 'jas proc ptr.*output' trace-out | sed -e 's/.*(/(/' | sort -u
-sync
-timelog
-pmrshowar -s
-pmraddtxt -H240 20792,379,000
-pmrshowar -s
-pmraddtxt -H120 75632,766,766
-sh -c 'emacs &'
-klist
-klist | wc
-ssh -d truth 2> /tmp/log
-ssh -d truth 2> /tmp/log2
-cat /tmp/log2
-ssh -v -v -v truth 2> /tmp/log2
-vi /tmp/log2 
-sh -c 'unset level; xterm & '
-man sshd.config
-man sshd
-man sshd
-strings /usr/sbin/sshd | grep sshd.config
-ps -ef|grep sshd
-which_fileset uutry
-what_fileset uutry
-cd
-cd $AIX53H
-cd latest
-cd cd src/bos
-pwd
-cd src/bos
-cd usr/bin/uucp
-ls
-cd $AIX53H
-ls
-cd 53H_COMPLETE
-cd src/bos/usr/bin/uucp
-egrep 'directory name illegal' *
-vi uucp.c
-pwd
-cd $AIX52Q
-cd 52Q_COMPLETE
-cd src/bos/usr/bin/uucp
-egrep 'directory name illegal' *
-cd /tc/l3tcp/tty
-ls
-setup-dump 20792,379,000
-setup-dump 20792,379,000
-setup-dump 20792,379,000 3
-cd /tc/l3tcp/tty/20792,379,000/
-find . -type f -print > FILES
-pwd
-ls
-egrep lslpp FILES
-egrep lslpp FILES | xargs egrep uucp 
-egrep lslpp FILES | xargs egrep uucp 
-/.../austin.ibm.com/fs/projects/ztrans/bin/swinfo bos.net.uucp > /tmp/bos.net.uucp
-vi /tmp/bos.net.uucp
-egrep lslpp FILES | xargs egrep uucp 
-vi /tmp/bos.net.uucp
-pwd
-egrep lslpp FILES | xargs egrep uucp 
-setup-dump 75632,766,766
-cd '/tc/l3tcp/tty/75632,766,766/may11-1-75632'
-ls
-file *
-uncomrpess trace.raw.Z 
-uncompress trace.raw.Z
-pwd
-ls
-trcrpt trace.raw > trace-out
-mv trace-out ~
-rm ~/trace-out
-pwd
-ls /tmp|grep uucp
-vi /tmp/bos.net/uucp
-vi /tmp/bos.net.uucp 
-tty
-trace -a -j40 -T 1024000 -L 2048000
-trcstop
-trcrpt -?
-trcrpt -O help
-trcrpt -O pid=on,svc=on,timestamp=1 > /tmp/OUT
-vi /tmp/OUT
-trace -a -j 7ff,40 -T 1024000 -L 2048000
-trcstop
-trcrpt -O help
-trcrpt -O exec=on,pid=on,svc=on,timestamp=1 > /tmp/OUT
-vi /tmp/OUT
-egrep 'xterm.*ioctl'
-egrep 'xterm.*ioctl' /tmp/OUT
-egrep ioctl /tmp/OUT
-egrep ioctl /tmp/OUT|more
-:%s/          //g
-vi /tmp/OUT
-trace -a -T 10240000 -L 20480000
-trace -a -T 1024000 -L 2048000
-trcstop
-trace -a -T 1024000 -L 2048000
-trcstop
-trcrpt -O exec=on,pid=on,svc=on,timestamp=1 > /tmp/OUT
-egrep xterm /tmp/OUT | more
-egrep 'xterm.*ioctl' /tmp/OUT | more
-egrep 'xterm.*ioctl' /tmp/OUT | sed -e 's/.......................................//'
-egrep 'xterm.*ioctl' /tmp/OUT | sed -e 's/.................................................................//'
-egrep 'xterm.*ioctl' /tmp/OUT | sed -e 's/...........................................................//'
-egrep 'xterm.*ioctl' /tmp/OUT | sed -e 's/...........................................................//' | sort -u
-egrep '^7ff' /tmp/OUT | ore
-egrep '^7ff' /tmp/OUT | more
-egrep WRAP /tmp/OUT
-trace -a -T 2048000 -L 40960000
-trcstop
-trcrpt -O exec=on,pid=on,svc=on,timestamp=1 > /tmp/OUT
-grep WRAP /tmp/OUT
-trace -a -T 4096000 -L 8192000
-
-trcrpt -O exec=on,pid=on,svc=on,timestamp=1 > /tmp/OUT
-
-trcrpt -O exec=on,pid=on,svc=on,timestamp=1 > /tmp/OUT; egrep WRAP /tmp/OUT
-trace -a -T 4096000 -L 8192000; read f ; trcstop
-trcrpt -O exec=on,pid=on,svc=on,timestamp=1 > /tmp/OUT; egrep WRAP /tmp/OUT
-tail -24 /tmp/OUT
-egrep 7FF /tmp/OUT
-egrep '^7FF' /tmp/OUT
-trace -a -T 4096000 -L 8192000; read f ; trcstop
-trcrpt -O exec=on,pid=on,svc=on,timestamp=1 > /tmp/OUT; egrep WRAP /tmp/OUT
-egrep '^7FF' /tmp/OUT
-vi /tmp/OUT
-rm /var/adm/ras/trcfile
-vi /tmp/OUT
-rm /tmp/OUT
-stty -a
-stty -a > /tmp/A
-pwd
-cd .bash
-ls
-stty $( cat tty-settings )
-stty -a < /tmp/B
-stty -a < /tmp/B2
-stty -a > /tmp/B
-diff /tmp/[AB]
-su
-unset HISTORY
-unset correct
-unset autocorrect
-exec env 'ENV=' 'PS1=$ ' /bin/sh
-setup-dump 34521,000,856
-cd '/tc/l3tcp/tty/34521,000,856/may10-1-34521'
-ls
-ls
-ls -F
-vi *
-pwd
-cd ../..
-pwd
-ls
-cd 22425,260,631/
-ls -ltr
-cd apr23-22425/
-ls
-cd dump/
-pwd
-ls
-./dex dump unix
-./kdb dump unix
-stty -echo
-cs pedz|Reduce|sh -x
-pwd
-ls
-pmrassign -q pedz -H30 17931,004,000
-cs pedz|Reduce|sh -x
-pmrblob 34521,000,856
-~/bin/jim-tty 34521,000,856
-pmrreturn -H60 34521,000,856
-pmraddtxt -H60 25663,999,834
-pmraddtxt -H30 70906,227,000
-pmrblob 22605,260,631
-sh -c 'emacs &'
-cd
-find . -mtime -1 -print > /tmp/M
-wc /tmp/M
-vi /tmp/M
-unset HISTORY
-unset correct
-unset autocorrect
-exec env 'ENV=' 'PS1=$ ' /bin/sh
-pwd
-type svn
-sync
-cd .bash
-cd
-stty -a > /tmp/A1
-stty $( cat .bash/tty-settings )
-stty -a > /tmp/A2
-diff /tmp/A?
-diff /tmp/A[12]
-stty $( cat .bash/tty-settings )
-sync
-find .bash -type f -print | xargs egrep ztran
-pwd
-cd
-PATH=$PATH:/.../austin.ibm.com/fs/projects/ztrans/bin
-swinfo bos.net.uucp > /tmp/bos.net.uucp
-vi /tmp/bos.net.uucp
-telnet tcp235
-stty -echo
-pmralter -p 1 75632,766,766
-pmralter -s 1 75632,766,766
-pmrreturn -q krcmp,70x -H60 75632,766,766
-sh -c 'emacs &'
-egrep ioctl /tmp/OUT
-df /var
-ls -l /var/adm/ras
-sync
-cd
-type svn
-cd $AIXBASE
-sync
-ls
-echo aix52?/*/ship
-echo aix52?/*/ship/usr/bin/uusnap
-echo aix52?/*/ship/power/usr/bin/uusnap
-echo aix52?/*/ship/power/usr/bin/uustat
-sum aix52?/*/ship/power/usr/bin/uustat > /tmp/SUMS
-egrep 15736 /tmp/SUMS
-egrep 06010 /tmp/SUMS
-egrep 06010 /tmp/SUMS|more
-egrep '15736|06010' /tmp/SUMS | more
-egrep '15736|06010' /tmp/SUMS | more
-for i in aix52?/*/ship/power/usr/bin/uustat do ls -l $i ; sum $i ; done > /tmp/OUT
-for i in aix52?/*/ship/power/usr/bin/uustat do ls -l '$i' ; sum '$i' ; done > /tmp/OUT
-for i in aix52?/*/ship/power/usr/bin/uustat ; do ls -l '$i' ; sum '$i' ; done > /tmp/OUT
-pwd
-for i in aix52?/*/ship/power/usr/bin/uustat ; do ls -l $i ; sum $i ; done > /tmp/OUT
-ls -t aix52?/*/ship/power/usr/bin/uustat | while read i ; do sum $i ; done > /tmp/OUT2
-vi /tmp/OUT2
-vi /tmp/OUT
-for i in aix52?/*/ship/power/usr/bin/uustat ; do ls -Ll $i ; sum $i ; done > /tmp/OUT
-vi /tmp/OUT
-unset HISTORY
-unset correct
-unset autocorrect
-exec env 'ENV=' 'PS1=$ ' /bin/sh
-pwd
-egrep -i 'remote.*debug' *
-pwd
-egrep -i 'debug.*remote' *
-timelog
-pmrshowar -s
-stty -echo
-pmraddtxt -H360 20792,379,000
-ps -fupedzan
-ps -ef > /tmp/A
-vi /tmp/A
-vi /tmp/A
-ls -ltr /tmp
-vi /tmp/A
-ls -ltr /tmp|grep pedzan
-vi /tmp/bos.net.uucp
-sh -c 'emacs &'
-cd
-cd /work/pedzan/
-ls
-cd pmrs/
-ls
-cd 20792/
-ls
-mkdir src
-cd src
-ls $AIX52Q
-ls $AIX52Q_COMPLETE
-echo $AIX52Q_COMPLETE
-echo $AIX52Q/52Q_COMPLETE
-echo $AIX52Q/52Q_COMPLETE/src/bos/usr/bin/uucp
-ls $AIX52Q/52Q_COMPLETE/src/bos/usr/bin/uucp
-ln -s $AIX52Q/52Q_COMPLETE/src/bos/usr/bin/uucp/* .
-ls *.[ch] > cscope.files
-cscope -q
-unset HISTORY
-unset correct
-unset autocorrect
-exec env 'ENV=' 'PS1=$ ' /bin/sh
-unset HISTORY
-unset correct
-unset autocorrect
-exec env 'ENV=' 'PS1=$ ' /bin/sh
-ls
-cd /tc/l3tcp/tty
-cd 24*
-ls
-cd 22425,260,631/*
-ls
-cd 224*
-cd /tc/l3tcp/tty/22425,260,631
-ls
-cd apr*
-ls
-cd dump
-ls
-./dex dump unix
-unset HISTORY
-unset correct
-unset autocorrect
-exec env 'ENV=' 'PS1=$ ' /bin/sh
-stty -echo
-timelog
-pmrshowar -s
-pmrblob 22605,260,631
-pmrreturn -q broff,953 -H120 22605,260,631
-pmrreturn -l -q bfoss,953 -H120 22605,260,631
-pmrshowar -s
-pmraddtxt -H300 20792,379,000
-pmrshowar -s
-timelog | tail
-pmrclose -H30 76103 344 000
-pmrclose -H30 76103,344,000
-ps -fupedzan
-ps -fupedz
-ps -fupedzan
-setup-dump 22425,260,631
-ls /home/aasc/pmrs/22425.b260.c631
-ftp ftp.digi.com
-pwd
-cd /t3/l3tcp/tty
-cd /tc/l3tcp/tty/
-ls
-cd 224*
-pwd
-ls
-cd apr23-22425/dump/
-ls
-./dex dump unix
-pwd
-sum /home/aasc/pmrs/22425.b260.c631/apr23-22425.pax.gz 
-pwd
-./kdb dump unix
-pwd
-cd ../general
-grep RealPort lslpp.hac 
-grep -i real lslpp.hac
-pwd
-pwd
-cd ..
-grep jamesp what-dump
-pwd
-cd dump
-ls
-grep jamesp what-dump
-grep -i version what-dump
-sh -c 'emacs &'
-ps -ef|grep emacs
-kill -INT 46442
-kill -INT 46442
-kill -INT 46442
-kill -1 46442
-sync
-c
-sh -c 'emacs &'
-telnet truth
-telnet truth
-telnet truth
-pwd
-ps -ef|grep emacs
-kill -INT 49072
-kill -1 49072
-sync
-sh -c 'emacs &'
-cd
-cd /work/pedzan/pmrs/20792/
-ls
-cd src
-ls
-egrep DENIED *
-stty -echo
-cs pedz|Reduce|sh -x
-sh -c 'emacs &'
-type epkg_get
-start-epkg 
-type epkg_get
-epkg_get -?
-cd
-showmount -t truth
-showmount -e truth
-ftp truth
-unset HISTORY
-unset correct
-unset autocorrect
-exec env 'ENV=' 'PS1=$ ' /bin/sh
-stty -echo
-pwd
-apar2def iy97369
-pmraddtxt -H60 17931,004,000
-Track -view -defect 601486 -release bos53J
-Track -view -defect 601486 -release bos53J -long
-Track -view -defect 601486 -release bos53L -long
-pmraddtxt -H60 17931,004,000
-pmraddtxt -?
-pmraddtxt -S1 -H0 17931,004,000
-timelog | tail
-pmrshowar -s
-pmraddtxt
-pmraddtxt -S1 -H480 20792,379,000
-pmrshowar -s
-sync
-sh -c 'emacs &'
-start-epkg
-epkg -?
-epkg_get -?
-epkg_get -v 2002
-gsa_login
-epkg_get -v 2002
-epkg_get -v 2002
-epkg_get -v 2002
-epkg_get -v 2002
-clear ; epkg_get -v 2002
-pwd
-cd
-ls
-ls epkgwork
-rm core
-mkdir ifixes
-cd ifixes
-epkg_get -g 2002
-ls
-ls -F
-cd 2002
-ls
-ls -F
-telnet tcp235
-ssh tcp235
-telnet tcp235
-ssh root@tcp235
-vi +13 ~/.ssh/known_hosts 
-ssh root@tcp235
-cd
-pwd
-cd
-cd sb
-ls
-cd
-start-sb 20792_bos52Q uucp ./bos/usr/bin/uucp
-cd
-cd epkgwork/20792-01/
-scp 20792-01.070516.epkg.Z root@tcp235:/tmp
-who
-stty -echo
-pwd
-uptime
-cd /tmp
-File -extract src/bos/usr/bin/uucp/permission.c -version 1.13.1.4 -stdout > 1.4
-File -extract src/bos/usr/bin/uucp/permission.c -version 1.13.1.3 -stdout > 1.3
-diff 1.[34]
-def2apar 515009
-Defect -note 533149 -remarks -
-Defect -note 533149 -remarks -
-pmrget -Ai 20792,379,000|grep GIVEN
-pmrassign -p 4 -s 4 -H 60 20792,379,000
-pmrclose -H30 17931,004,000
-cd
-cd /usr/local/src
-cd ../images
-mv /tmp/subversion-1.4.3.tar.bz2 .
-cd ../src
-bunzip2 < ../images/subversion-1.4.3.tar.bz2 |tar xf -
-pwd
-cd subversion-1.4.3/
-df .
-./configure
-pwd
-cd /usr/local/images
-mv ~/subversion-deps-1.4.3.tar.bz2 .
-sync
-cd ..
-pwd
-cd src
-bunzip2 < ../images/subversion-deps-1.4.3.tar.bz2 | tar tf - | head
-bunzip2 < ../images/subversion-deps-1.4.3.tar.bz2 | tar xf -
-sync
-pwd
-cd subversion-1.4.3/
-./configure
-cd ..
-rm -r subversion-1.4.3/
-bg
-jobs
-mv subversion-1.4.3 dog
-rm -rf dog &
-bunzip2 < ../images/subversion-1.4.3.tar.bz2 | tar xf -
-bunzip2 < ../images/subversion-deps-1.4.3.tar.bz2 | tar xf -
-cd subversion-1.4.3/
-bash ./configure
-echo $?
-gmake
-echo $?
-gmake install
-echo $?
-cd
-type svn
-w
-who
-sh -c 'emacs &'
-cd
-mv subversion-1.4.3.tar.bz2 /tmp
-su
-pwd
-cd /530images
-ls
-cd base
-ls
-cd lcd*06
-ls
-cd installp
-ls
-cd ppc
-ls
-egrep -i 'parallel' .toc
-egrep -i 'parallel' .toc
-vi .toc
-f=/530images/base/lcd4-7463-06/installp/ppc/devices.common.IBM.ppa.5.3.0.0.I 
-cd /tmp
-mkdir dog
-mkdir dog2
-cd dog2
-restore -xqf $f
-cd usr/lib/methods
-what cfgpp
-pwd
-cd ../../..
-ls
-find . -type f -print
-echo $f
-p /530images/base/lcd4-7463-06/
-cd installp/ppc
-vi .toc
-g=/530images/base/lcd4-7463-06/installp/ppc/devices.isa_sio.pnpPNP.400.5.3.0.0.I 
-cd /tmp/dog2
-restore -xqf $f
-pwd
-cd ..
-mkdir dog3
-cd dog3
-restore -xqf $g
-cd usr/lib/drivers/isa
-what *
-pwd
-p
-pwd
-cd /530images/*6/
-cd /530images/base
-ls
-cd *06
-cd installp/ppc
-ls
-vi .toc
-pwd
-pwd
-ls devices.isa_sio.pnpPNP.400.5.3.0.0.I
-vi .toc
-ls devices.isa_sio.pnpPNP.400.5.3.0.0.I
-pwd
-unset h g
-h=/530images/base/lcd4-7463-06/installp/ppc/devices.isa_sio.pnpPNP.400.5.3.0.0.I 
-cd /tmp
-rm -rf dog dog2 dog3
-mkdir dog
-cd dog
-restore -xqf $h
-cd urs/lib/drivers
-cd usr/lib/drivers/isa
-ls
-what *
-Component -view sysxprnt
-lslpp -ch | grep -i parallel
-lslpp -ch
-lslpp -f
-lslpp -f|more
-odmget lpp
-lslpp -f|more
-lslpp -f| egrep -i parallel
-ls /usr/lib/drivers/isa
-cd
-sync
-sh -c 'emacs &'
-cat /tmp/xinit-out 
-vi +93 .xinitrc 
-tail -f /tmp/xinit-out 
-cd
-vi .xinitrc 
-sync
-vi /tmp/FirstTerm-error 
-vi .xinitrc 
-sync
-ps -ft0
-pwd
-w
-ps -ef|grep xinit
-ps -ef|grep xinit
-px -ftlft0
-ps -ftlft0
-kill 24252
-ps -ftlft0
-ps -ftlft0
-ps -ftlft0
-vi ~/bin/FirstTerm 
-type getpeername
-sync
-ps -ftlft0
-ps -ftlft0
-kill 28688
-ps -ftlft0
-cd
-vi .xinitrc
-sync
-cat /tmp/FirstTerm-error 
-cat /tmp/FirstTerm-error 
-cat /tmp/FirstTerm-error 
-cat /tmp/FirstTerm-error 
-pwd
-cd /usr/local
-df .
-sync
-cd /usr/local/src/apr-util-1.2.8/
-ls
-./configure
-pwd
-cd /usr/local/images
-mv ~/neon-0.26.3.tar .
-bzip2 -9 neon-0.26.3.tar 
-cd ../src
-bunzip2 < ../images/neon-0.26.3.tar.bz2 | tar xf -
-sync
-pwd
-cd neon-0.26.3/
-ls
-./configure
-bash ./configure
-cd /usr/local/images
-mv ~/expat-1.95.8.tar .
-cd ../src
-tar xf ../images/expat-1.95.8.tar 
-cd ../images
-ls
-bzip2 -9 expat-1.95.8.tar 
-cd ../src/expat-1.95.8/
-ls
-./configure
-echo $?
-gmake
-echo $?
-gmake install
-pwd
-cd ../neon-0.26.3/
-bash ./configure
-ls /usr/local/lib
-ls /usr/local/lib/ex*
-pwd
-cd ../expat-1.95.8/
-gmake install
-ls /usr/local/lib/ex*
-ls /usr/local/lib | grep exp
-pwd
-cd ../neon-0.26.3/
-./configure -help
-./configure -help
-./configure -help > /tmp/A
-vi /tmp/A
-ls /usr/local/ssl
-pwd
-pwd
-pwd
-mv /tmp/DoConfigure .
-chmod +x DoConfigure 
-DoConfigure
-ls
-ls /usr/local/lib
-ls /usr/local/include
-vi DoConfigure 
-./DoConfigure
-./DoConfigure
-gmake
-echo $?
-gmake install
-pwd
-cd ..
-pwd
-ls
-ls -ltr
-ls -ltr
-cd subversion-1.4.3/
-mv /tmp/DoConfigure .
-cat DoConfigure 
-sync
-pwd
-ls
-chmod +x DoConfigure 
-DoConfigure
-echo $?
-pwd
-gmake
-echo $?
-gmake install
-echo $?
-svn --version
-type svn
-ls
-pwd
-cat DoConfigure 
-pwd
-ls ..
-type svn
-find . -name svn -print
-subversion/svn/svn
-subversion/svn/svn --help
-type -all svn
-sum subversion/svn/svn
-sum /usr/local/bin/svn
-pwd
-pwd
-ls
-rm /usr/local/bin/svn
-gmake install > /tmp/LOG 2>&1
-echo $?
-sum /usr/local/bin/svn
-find . -name svnadmin -print
-sum subversion/svnadmin/svnadmin
-sum $( type -path svnadmin )
-rm $( type -path svnadmin )
-ls /usr/local/bin/sv*
-rm /usr/local/bin/sv*
-sync
-gmake install > /tmp/LOG 2>&1
-svnadmin --help
-type svnadmin
-sum $( type -path svnadmin )
-subversion/svnadmin/svnadmin 
-subversion/svnadmin/svnadmin --help
-egrep svnadmin /tmp/LOG
-ls libs
-rm -r .libs
-pwd
-find . -name svnadmin -print
-find . -type f -name svnadmin -print
-sum $( find . -type f -name svnadmin -print )
-find . -name .libs
-ls subversion/svnversion/.libs/
-rm -r subversion/svnversion/.libs/
-sync
-gmake install > /tmp/LOG 2>&1
-sum $( find . -type f -name svnadmin -print )
-sum /usr/local/bin/svnadmin
-sync
-svnadmin -?
-egrep svnadmin /tmp/LOG
-sum $( find . -type f -name svnadmin -print )
-type svn
-svn --help
-find . -type f -name svn -print
-sum $( find . -type f -name svn -print )
-sync
-cd subversion/svn
-rm -r .libs
-gmake
-ls
-rm svn
-cd ..
-gmake
-pwd
-cd ..
-gmake
-sum $( find . -type f -name svn -print )
-vi subversion/svn/svn
-svn
-find /usr/local/lib
-svn
-find /usr/local/lib/libsvn_delta-1.*
-file /usr/local/lib/libsvn_delta-1.*
-export LIBPATH=/usr/lib:/usr/local/lib
-svn
-svn --help
-svnadmin --help
-suspend
-svn
-pwd
-cd /usr/local/lib
-ar t libz.a 
-svn
-pwd
-cd /usr/local/src
-cd subversion-1.4.3/
-gmake dist-clean
-pwd
-cd ..
-mv subversion-1.4.3 dog
-rm -rf dog &
-ls ../images/sub*
-bunzip2 < ../images/subversion-1.4.3.tar.bz2 | tar xf - 
-rpm -qa
-rpm -qa|sort
-clear ; rpm -qa|sort
-pwd
-cd subversion-1.4.3/
-egrep -i aix *
-egrep -li aix *
-vi CHANGES 
-pwd
-cd /usr/local/images
-ls ~
-mv ~/apr-1.2.8.tar .
-gzip2 -9 apr-1.2.8.tar 
-bzip2 -9 apr-1.2.8.tar
-cd ../src
-bunzip2 < ../images/apr-1.2.8.tar.bz2 | tar xf -
-cd apr-1.2.8
-cd ../../images
-ls
-mv ~/apr-util-1.2.8.tar .
-pwd
-bzip2 -9 apr-util-1.2.8.tar 
-cd ../src
-bunzip2 < ../images/apr-util-1.2.8.tar.bz2 | tar xf -
-sync
-pwd
-cd apr-1.2.8/
-./configure
-bash ./configure
-echo $?
-build
-gmake
-echo $?
-gmake install
-echo $?
-cd ../apr-util-1.2.8/
-bash ./configure
-bash ./configure --with-apr=/usr/local/apr
-pwd
-pwd
-bash ./configure 
-./configure --help
-./configure --help > /tmp/A
-# echo bash ./configure --with-apr=/usr/local/apr --with-expat
-type expat
-cp ../neon-0.26.3/DoConfigure .
-cat DoConfigure 
-vi DoConfigure 
-./DoConfigure
-vi DoConfigure 
-./DoConfigure
-echo $?
-gmake
-find /usr/local -name expat_external.h -print
-pwd
-cd ../expat-1.95.8/
-gmake install
-vi Makefile
-gmake installlib
-vi Makefile
-gmake installlib
-ls /usr/local/include
-pwd
-file conftools/install-sh 
-vi conftools/install-sh
-gmake install
-gmake install > /tmp/A 2>&1
-vi /tmp/A
-vi conftools/install-sh
-make installlib
-vi conftools/install-sh
-make installlib
-ls /usr/local/include/
-find /usr/local -name expat_external.h -print
-vi /tmp/A
-gmake install
-gmake installlib
-conftools/install-sh -c -m 644 ./lib/expat_external.h /usr/local/include
-ls /usr/local/include
-sync
-pwd
-history | grep cd
-cd ../apr-util-1.2.8/
-ls
 cat DoConfigure 
 vi DoConfigure
 cd ../expat-1.95.8/
@@ -1023,3 +94,931 @@ svn
 ls /usr/local/images
 w
 ps -ef|grep configure
+svnadmin -?
+type svn
+fuck
+fuck me like a dug
+fuck me like a god damn dog.
+su lroot
+pwd
+cd
+cd .emacs.d
+ls
+clean
+find . -print|grep '~'
+find . -print|grep '~' | xargs rm
+sync
+ls
+cd
+mkdir temp
+cd temp
+tar cf - -C ~/.emacs.d . | tar xf -
+ls
+find . -name '*.elc' -print
+find . -name '*.elc' -print | xargs rm
+ls
+find . -name semantic.cache -print
+find . -name semantic.cache -print | xargs rm
+sync
+find . -type f -print | egrep -v '\.el$'
+find . -type f -print | egrep -v '\.el$' | egrep -v '\.rnc$'
+find . -type f -print | egrep -v '\.el$' | egrep -v '\.rnc$'|egrep -v '\.xml$'
+find . -type f -print | egrep -v '\.el$' | egrep -v '\.rnc$'|egrep -v '\.xml$'|more
+pwd
+svn import -m 'emacs lisp files' . https://www.easesoftware.com/svn/private/emacs-lisp/trunk
+su
+svn import -m 'emacs lisp files' . https://www.easesoftware.com/svn/private/emacs-lisp/trunk
+pwd
+cd ..
+pwd
+ls dotemacs
+mv .emacs.d dotemacs
+cd
+svn co https://www.easesoftware.com/svn/emacs-lisp/trunk .emacs.d
+svn co https://www.easesoftware.com/svn/private/emacs-lisp/trunk .emacs.d
+cd .emacs
+cd .emacs.d/
+pwd
+ls
+find . -name CVS -print
+pwd
+cd ecb
+ls
+vi Makefile
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+echo $?
+pwd
+cd ../cedet/
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+pwd
+cd ..
+ls
+ls -F
+ls auto-save-list/
+ls lib
+ls mmm-mode-0.4.8/
+cd mmm-mode-0.4.8/
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+echo $?
+ls
+cd ..
+pwd
+ls -F
+cd nxml-mode-20041004/
+pwd
+ls
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+vi Makefile 
+make clean
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+pwd
+ls
+cd ..
+ls
+ls -F
+find . -name Makefile -print
+pwd
+# /Applications/Emacs.app/Contents/MacOS/Emacs
+pwd
+ls *.el
+ls
+cd setups
+ls
+for i in *.el ; do echo /Applications/Emacs.app/Contents/MacOS/Emacs -batch "(byte-compile-file \"$i\")" ; done
+for i in *.el ; do /Applications/Emacs.app/Contents/MacOS/Emacs -batch "(byte-compile-file \"$i\")" ; done
+ls
+for i in *.el ; do echo /Applications/Emacs.app/Contents/MacOS/Emacs -batch "(byte-compile-file \"$i\")" ; done
+/Applications/Emacs.app/Contents/MacOS/Emacs -batch "(byte-compile-file \"wisent-setup\")" ; done
+/Applications/Emacs.app/Contents/MacOS/Emacs -batch "(byte-compile-file \"wisent-setup\")"
+ls
+wd
+pwd
+cd ..
+find . -type d -print
+ls wisent
+find . -type d -prune .svn -print
+find . -type d -prune -name .svn -o -print
+pwd
+pwd
+find . -prune -name .svn -o -print
+find . -name .svn -prune -o -print
+find . -name .svn -prune -o -type d -print
+find . -name .svn -prune -o -name CVS -prune -o -type d -print 
+vi Makefile
+make
+tail /tmp/E
+tail /tmp/D
+ls */Makefile
+vi Makefile
+make
+vi Makefile
+make
+vi Makefile
+make
+vi Makefile
+make
+vi Makefile
+make
+make > /tmp/OUT 2>&1
+vi /tmp/OUT
+vi Makefile
+ls
+make > /tmp/OUT 2>&1
+vi /tmp/OUT
+pwd
+vi Makefile
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/A 2>&1
+vi /tmp/A
+ls
+ls setup
+ls setups
+cd setups
+/Applications/Emacs.app/Contents/MacOS/Emacs -batch -f batch-byte-compile *.el
+pwd 
+/Applications/Emacs.app/Contents/MacOS/Emacs -batch -f batch-byte-compile *.el > /tmp/A 2>&1
+vi /tmp/A
+/Applications/Emacs.app/Contents/MacOS/Emacs -batch -q --no-site-file -l ~/.emacs.d/add-paths.el -f batch-byte-compile *.el > /tmp/A 2>&1
+ls
+pwd
+ls ..
+ls ../ruby/
+ls ../lib
+pwd
+cd ..
+find . -print | egrep rails
+ls
+ls emacs-rails/
+pwd
+ls
+ls ruby
+ls ruby/ri-emacs/
+ls
+clean
+ls
+find . -name '*.elc' -exec rm
+find . -name '*.elc' -exec rm \;
+ls
+find . -name '*.elc' -print
+find . -name '*.elc' -print | xargs rm
+sync
+pwd
+cd setups/
+pwd
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+pwd
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+ls
+clean
+cd ..
+cp setups/Makefile pedz
+cd pedz
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+ls
+ls *.el|wc
+ls *.elc|wc
+cd ..
+ls -F
+cd emacs-rails/
+ls
+find . -type d -print
+cp ../pedz/Makefile .
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+ls
+ls *.el|c
+ls *.el|wc
+ls *.elc|wc
+sync
+ls
+pd
+pwd
+cd ..
+ls
+ls -F
+ls lib
+cd lib
+cp ../pedz/Makefile .
+cd ..
+cd ruby/
+ls
+ls ri-emacs/
+ls ruby-mode/
+pwd
+cp ../pedz/Makefile .
+vi Makefile
+make
+ls
+ls ri-emacs/
+ls ruby-mode/
+ls .svn
+find . -name '*.el' -print
+find . -name '*.el' -print|wc
+find . -name '*.elc' -print|wc
+vi Makefile
+cp ../pedz/Makefile ri-emacs/
+cp ../pedz/Makefile ruby-mode/
+vi Makefile
+make
+ls
+vi Makefile
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+vi Makefile
+ls
+rm */*.elc
+vi Makefile
+make
+ls */*.elc
+sync
+pwd
+cd ..
+ls
+ls wisent
+cp pedz/Makefile wisent
+ls
+sync
+ls
+ls -F
+ls -F | egrep /
+ls -F | egrep /|wc
+ls */Makefile | wc
+vi Makefile
+make
+ls 
+ls wisent
+sync
+pwd
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+find . -name '*.el' -print | wc
+find . -name '*.elc' -print | wc
+find . -name '*.el' -print | more
+find . -name '*.el' -print | sed -e 's/\..*//'
+find . -name '*.el' -print | sed -e 's/\.el$//'
+find . -name '*.el' -print | sed -e 's/\.el$//' | sort > /tmp/A
+rm /tmp/A
+find . -name '*.el' -print | sed -e 's/\.el$//' | sort > /tmp/A.el
+find . -name '*.elc' -print | sed -e 's/\.elc$//' | sort > /tmp/A.elc
+comm /tmp/A.el* | more
+ls cedet/cedet-update-changelog.el 
+vi Makefile
+find . -name '*.elc' -print | xargs rm
+pwd
+ls
+svn commit -m 'Fixed Makefiles'
+pwd
+pwd
+cd ..
+ls temp
+rm -r temp
+mkdir temp
+rmdir temp
+svn co https://www.easesoftware.com/svn/private/emacs-lisp/trunk temp
+cd temp
+ls
+cd ..
+rm -rf temp
+svn co https://www.easesoftware.com/svn/private/emacs-lisp/trunk temp
+pwd
+diff -rc temp .emacs.d > /tmp/DIFF
+more /tmp/DIFF
+egrep Only /tmp/DIFF
+egrep Only /tmp/DIFF | egrep -v '~'
+cd .emacs.d
+svn add Makefile
+svn add add-paths.el
+egrep Only /tmp/DIFF | egrep -v '~'
+egrep 'Only in .emacs' /tmp/DIFF | egrep -v '~'
+for i in emacs-rails lib pedz ruby ruby/ri-emacs ruby/ruby-mode setups wisent ; do ( cd $i ; svn add Makefile ) ; done
+pwd
+cd ../temp/
+pwd
+cd ../.emacs.d/
+svn commit -m 'Added Makefiles'
+pwd
+cd ../temp
+svn update
+cd ..
+find .emacs.d -print | egrep '~'
+find .emacs.d -print | egrep '~' | xargs rm
+diff -rc temp .emacs.d > /tmp/DIFF
+egrep 'Only in .emacs' /tmp/DIFF | egrep -v '~'
+vi /tmp/DIFF
+egrep Only /tmp/DIFF
+sync
+vi /tmp/DIFF 
+egrep '^--- ' /tmp/DIFF
+egrep '^--- ' /tmp/DIFF|grep /
+egrep '^--- ' /tmp/DIFF|grep / | egrep -v '/\.svn/'
+sync
+pwd
+rm -r temp
+pwd
+rm -rf temp
+mv .emacs.d temp1
+svn co https://www.easesoftware.com/svn/private/emacs-lisp/trunk .emacs.d
+cd .emacs.d/
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+ls
+vi Makefile
+sync
+vi Makefile
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+vi Makefile
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+ls
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1
+vi /tmp/L
+vi Makefile
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1
+vi /tmp/L
+ls
+find . -print | grep loaddef
+pwd
+cd
+ls temp
+ls
+cd
+ls
+ls temp1/
+tar xf ~/Desktop/mine.tar 
+pwd
+tar tf ~/Desktop/mine.tar 
+pwd
+sync
+cd .bash
+clean
+ls
+find . -print
+cd
+ssh easesoftware.com
+pwd
+cd .bash
+cd
+ls bash
+cp -r .bash bash
+cd bash
+ls
+svn import -m 'bash setup files' . https://www.easesoftware.com/svn/private/bash-setup/trunk
+sync
+pwd
+cd 
+ls -dl .bash*
+diff .bashrc bash/bashrc 
+diff .bashrc bash/bashrc |more
+pwd
+ls
+clean
+rm .bashrc .bash_profile 
+pwd
+rm -r .bash
+svn co https://www.easesoftware.com/svn/private/bash-setup/trunk .bash
+ln -s .bash/bashrc .bashrc
+ln -s .bash/bash_profile .bash_profile
+ls
+cat .bashrc
+snc
+sync
+fg
+ls
+cd
+cd Desktop/
+rm mine.tar 
+cd
+rm ~/Desktop/dlpicode.tar 
+cd
+ls
+vi t3.rb 
+vi tmp1.txt 
+rm tmp1.txt
+rm semantic.cache 
+sync
+mv CFFTPStreams.c ~/Desktop/Download/
+ls
+ls old-emacs
+rm -r old-emacs
+rm -r orig.emacs.d/
+rm -r dotemacs/
+ls temp1/
+rm -r temp1/
+rm -fr temp1/
+sync
+sync
+ls
+ls ..
+ls ../pedz-photos/
+cd Desktop/
+mv X11R7.2 ../../pedz-photos/
+sync
+cd
+ls *rb
+ls bin
+sync
+cd bin
+clean
+cd Desktop/Download/Two/met-art/
+suck
+ls
+find pics -ctime -2 -print
+mkdir foo
+find pics -ctime -2 -print|while read f ; do ln $f foo ; done
+pwd
+rm -r foo
+ls
+make-rand
+rm -r  random/
+svn help
+svn help delete
+cd .emacs.d/
+svn delete ecb
+svn --force delete ecb
+sync
+ls ecb
+pwd
+ls ecb
+rm -r ecb
+rm -rf ecb
+svn commit
+svn commit -m 'delete ecb so we can re-add it'
+ls ecb
+tar xf /tmp/dog2/ecb.tar
+sync
+svn add ecb
+svn commit -m 'add ecb before we compile it'
+pwd
+cd /tmp/dog2/ecb
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+vi /tmp/L
+pwd
+ls
+pwd
+pwd
+cd 
+cd .emacs.d/
+cd ecb/
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+cat /tmp/L
+pwd
+ls
+vi Makefile
+pwd
+vi Makefile
+pwd
+cd
+cd saved.emacs.d/
+ls
+cd
+diff -rc .emacs.d/ecb saved.emacs.d/ecb > /tmp/DIFF
+vi /tmp/DIFF
+egrep '^--- saved' /tmp/DIFF | egrep -v '/\.svn/'
+diff -rc .emacs.d/ecb/Makefile saved.emacs.d/ecb | more
+pwd
+cd
+cd .emacs.d/
+cd ecb/
+cp ~/saved.emacs.d/ecb/Makefile .
+egrep '^--- saved' /tmp/DIFF | egrep -v '/\.svn/'
+egrep '^--- saved' /tmp/DIFF | egrep -v '/\.svn/' > /tmp/DOG
+egrep '^--- saved' /tmp/DIFF | egrep -v '/\.svn/' > /tmp/D2
+vi /tmp/D2
+cp $( cat /tmp/D2 ) .
+vi /tmp/D2
+cp $( cat /tmp/D2 ) .
+vi /tmp/D2
+cp ~/saved.emacs.d/ecb/tree-buffer.el .
+cp ~/saved.emacs.d/ecb/ecb.el .
+cp ~/saved.emacs.d/ecb/ecb-util.el .
+sync
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+vi /tmp/L
+vi Makefile
+ls
+vi /tmp/L
+pwd
+cd ../cedet/
+ls
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+vi /tmp/L
+touch Makefile
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+vi /tmp/L
+find . -name Makefile -print
+find . -name Makefile -print|xargs touch
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+pwd
+cd ../ecb
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+vi /tmp/L
+pwd
+cd ..
+find ecb -name '*.elc' -print
+find ecb -name '*.elc' -print|more
+find cedet -name '*.elc' -print|more
+find cedet -name '*.elc' -print|wc
+sync
+pwd
+cd
+cd .emacs.d
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+svn commit -m 'after compiling everything'
+sync
+vi Makefile
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+find . -name '*.elc' -print | wc
+# find . -name '*.elc' -print | xargs rm
+find . -name '*.elc' -print | wc
+find . -name '*.elc' -print | xargs rm
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+find . -name '*.elc' -print | wc
+sync
+vi /tmp/L
+sync
+cd
+cd .emacs.d/
+svn update
+svn update
+svn commit -m 'Fixed a few things'
+ls -l cedet/semantic/bovine/semantic-scm-by.el
+date
+cat > /tmp/F
+vi /tmp/F
+cd
+tar cf save.emacs.d.tar .emacs.d
+pwd
+cd .emacs.d/
+cat /tmp/F
+svn delete $( cat /tmp/F )
+svn commit -m 'Delete cedet compiled items'
+sync
+cd
+mv .emacs.d saved.emacs.d
+sync
+ls sav*
+sync
+pwd
+svn co https://www.easesoftware.com/svn/private/emacs-lisp/trunk .emacs.d
+pwd
+cd .emacs.d
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+vi /tmp/L
+find . -name Makefile > /tmp/A
+vi /tmp/A
+vi $( /tmp/A )
+vi $( cat /tmp/A )
+svn commit -m 'Makefiles ignore emacs errors'
+sync
+cd
+cd .emacs.d/
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1; echo $?
+find . -name '*.elc' -print
+find . -name '*.elc' -print|wc
+vi /tmp/L
+vi /tmp/L
+egrep Error /tmp/L
+more /tmp/L
+find . -print|grep semantic-grammar-wy
+find ~/saved.emacs.d -print | grep semantic-grammar-wy
+find ~ -name semantic-grammar-wy.el -print
+ls ~/src/emacs
+cd
+history|grep cedet 
+cd
+cd .emacs.d
+cat > fetch-cedet
+vi fetch-cedet
+chmod +x fetch-cedet
+cp fetch-cedet /tmp
+cd /tmp
+mkdir dog
+cd dog
+/tmp/fetch-cedet 
+vi fetch-cedet
+vi ../fetch-cedet 
+../fetch-cedet
+type /bin/sh
+ls -l /bin/sh
+vi ../fetch-cedet 
+/bin/sh
+vi ../fetch-cedet 
+/bin/sh
+vi ../fetch-cedet 
+ls
+../fetch-cedet 
+ls
+find . -name semantic-grammar-wy.el -print
+find . -type f -print | xargs touch
+find . -name '*.elc' -print 
+cd cedet/
+ls
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1 ; echo $?
+vi /tmp/L
+find . -name '*.elc' -print 
+find . -name '*.elc' -print |wc
+ls
+ls -F
+ls ..
+cd ..
+find . -name '*.elc' -print |xargs rm
+sync
+find . -type f -print | xargs touch
+touch now
+cd cedet
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1 ; echo $?
+pwd
+cd
+cd /tmp/dog
+find . -newer now -print
+find . -newer now -print | egrep -v '\.elc$'
+find . -newer now -type f -print | egrep -v '\.elc$'
+find . -newer now -type f -print | egrep -v '\.elc$'|more
+cd /tmp
+ls
+rm -fr dog &
+mkdir dog
+cd dog
+../fetch-cedet 
+pwd
+cat ../fetch-cedet 
+man cvs
+vi ../fetch-cedet 
+pwd
+ls
+rm -r cedet
+../fetch-cedet 
+vi ../fetch-cedet 
+man cvs
+pwd
+ls
+../fetch-cedet 
+pwd
+ls
+tar cf cedet.tar cedet
+ls
+ls -l
+find . -type f -print | xargs touch
+touch now
+find cedet -type f -print | sort > /tmp/FILES
+cd cedet
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1 ; echo $?
+cd ..
+find cedet -type f -print | sort > /tmp/FILES2
+mv /tmp/FILES /tmp/FILES1
+diff /tmp/FILES?
+diff /tmp/FILES?|more
+find . -name semantic-grammar-wy.el -print
+egrep semantic-grammar-wy.el /tmp/FILES1
+egrep semantic-grammar-wy.el /tmp/FILES2
+egrep '~' /tmp/FILES2
+diff cedet/semantic/semantic-grammar-wy.el{,.~1~}
+diff cedet/semantic/semantic-grammar-wy.el{,.~1~}|more
+pwd
+touch now
+cd cedet
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1 ; echo $?
+pwd
+cd ..
+ls -l now 
+ls -l cedet/semantic/semantic-grammar-wy.el* now
+cd
+cd .emacs.d
+ls
+rm -r cedet
+pwd
+cd /tmp/dog
+find . -newer now -print | sort > /tmp/NEWER
+more /tmp/NEWER
+while read f ; do egrep $f /tmp/FILES1 ; done < /tmp/NEWER
+pwd
+cd
+cd .emacs.d
+svn delete cedet
+svn --force delete cedet
+sync
+svn commit -m 'Delete cedet so we can re-add it'
+sync
+pwd
+tar xf /tmp/dog/cedet.tar 
+svn add cedet
+sync
+svn commit -m 'Add cedet before compiling'
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make > /tmp/L 2>&1 ; echo $?
+svn commit -m 'Update cedet after compiling'
+sync
+ls
+vi fetch-cedet 
+svn add fetch-cedet 
+cp fetch-cedet fetch-ecb
+vi fetch-ecb
+cp fetch-ecb /tmp
+cd /tmp
+mkdir dog2
+cd dog2
+pwd
+../fetch-ecb
+cd
+cd .emacs.d/
+vi fetch-*
+cp fetch-* /tmp
+cd /tmp/dog2
+../fetch-ecb 
+tar cf ecb.tar ecb
+env|grep SSH
+unset SSH_AGENT_PID
+unset SSH_AUTH_SOCK
+env|grep ssh
+temp=$( source ssh-agent )
+echo $temp
+env|grep SSH
+cat ssh-agent 
+cd
+ssh risc
+ps -ef|grep ssh
+ps auxww|grep ssh
+pwd
+cd .bash
+cat bash_ssh 
+ssh-start
+pwd
+cat bash_ssh 
+pwd
+cd ../.ssh
+cat ssh-agent
+bash
+ssh risc
+ssh lroot@easesoftware.com
+ssh easesoftware.com
+chmod +x temp.rb 
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+temp.rb
+ls
+ls -l .bashrc
+rm .poseidon
+rm -r .poseidon
+ls
+du -k . | sort -n > /tmp/DU &
+ls
+rm -rf .magicdraw/
+ls
+ls .save
+file .save
+rmdir .save
+ls
+rm .ssh-agent
+vi t3.rb 
+rm t3.rb
+ls src
+rm save.emacs.d.tar 
+rm -r saved.emacs.d/
+rm -fr saved.emacs.d/
+ls
+rm -r saved-email
+ls bash
+rm -r bash
+ls bin
+ls data
+ls -l data
+ls -ltr
+date
+ls -ltr data
+rm -r data
+ls
+ls ftp
+rm -r ftp
+vi loc.txt 
+rm loc.txt
+ls src
+cd src/images
+ls
+rm -rf cedet-1.0pre3.tar.bz2 ecb-2.32.tar ecb.tar 
+sync
+ls
+pwd
+cd ..
+ls
+cd emacs
+ls
+sync
+pwd
+ls
+cd
+pwd
+cd ../pedz-photos/
+ls
+svn co https://www.easesoftware.com/svn/private/sata/trunk sata
+ls sata/test
+rm -r sata
+rm -rf sata
+snc
+sync
+mkdir sata; svn co https://www.easesoftware.com/svn/private/sata/trunk/src sata/src
+pwd
+du -k sata
+pwd
+cd
+mount
+cd /Volumes/sata/
+svn co https://www.easesoftware.com/svn/private/sata/trunk trunk
+pwd
+pwd
+cd trunk/
+ls
+cd src
+ls
+make cscope
+make cscope.out
+find . -type f -print | xargs egrep -l FAST_FLASH
+egrep sata_ioctl cscope.files
+df .
+pwd
+cd ../pedz-photos/
+ls
+mkdir OpenOffice
+cd OpenOffice
+cvs -d :pserver:cvs@pserver.samba.org:/cvsroot co ccache
+ls
+cd ccache
+ls
+./configure
+ls
+make
+man make
+make -n install
+make install
+pwd
+pwd
+cd ..
+ls
+cd ccache
+ls
+pwd
+./configure --prefix=/Users/pedz-photos/OpenOffice/usr/local
+make
+make distclean
+./configure --prefix=/Users/pedz-photos/OpenOffice/usr/local
+./configure --help|more
+make
+make install
+pwd
+pwd
+cd ..
+vi setup
+. setup
+pwd
+ls
+mkdir src680-m211
+cd src680-m211
+export CVSROOT=:pserver:anoncvs@anoncvs.services.openoffice.org:/cvs
+cvs login
+cvs -z3 co -r SRC680_m211 OpenOffice2
+pwd
+cd ..
+ls
+rm -rf src680-m211
+go eon
+ls ~/bin
+echo $PATH
+PATH=$PATH:~/bin
+go eon
+go truth
+go truth
+cd
+cd Desktop
+scp pedzan@eon.austin.ibm.com:/tmp/dltune.tar.Z .
+sync
+ps auxww|grep ssh
+ssh-start
+pwd
+ssh lroot@easesoftware.com
+ssh risc
+ssh -f -Y risc xterm -n risc
+go eon
+pwd
+cd .bash
+ls
+echo $PATH
+echo $HOME
+egrep /home/pedz *
+egrep PATH *
+egrep PATH= *
+egrep '\<PATH=' *
+clear ; egrep '\<PATH=' *
+type xterm
+vi bashrc
+PATH=$PATH:$HOME/bin
+go eon
+pwd
+vi bashrc
+vi bash_profile
+vi bashrc
