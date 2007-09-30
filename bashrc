@@ -1,4 +1,6 @@
 
+# debug=1
+
 [[ -n "${debug}" ]] && echo ./bashrc
 
 #
