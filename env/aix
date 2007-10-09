@@ -21,55 +21,10 @@ aixlevel 52S
 aixlevel 53A
 aixlevel 53D
 aixlevel 53E
+aixlevel 53J
 aixlevel 53H
+aixlevel 53L
+aixlevel 53N
 
-# export AIX520=/.../austin.ibm.com/fs/projects/aix/aix520
-# export AIX520_latest=$AIX520/latest
-# export AIX520_SERVICE=$AIX520/520_SERVICE
-# export AIX520_GOLD=$AIX520/520_GOLD
-# 
-# # export AIX52F=/.../austin.ibm.com/fs/projects/aix/aix52F
-# # export AIX52F_latest=$AIX52F/latest
-# # export AIX52F_SERVICE=$AIX52F/52F_SERVICE
-# # export AIX52F_GOLD=$AIX52F/52F_GOLD
-# 
-# # export AIX52H=/.../austin.ibm.com/fs/projects/aix/aix52H
-# # export AIX52H_latest=$AIX52H/latest
-# # export AIX52H_SERVICE=$AIX52H/52H_SERVICE
-# # export AIX52H_GOLD=$AIX52H/52H_GOLD
-# 
-# export AIX52I=/.../austin.ibm.com/fs/projects/aix/aix52I
-# export AIX52I_latest=$AIX52I/latest
-# export AIX52I_SERVICE=$AIX52I/52I_SERVICE
-# export AIX52I_GOLD=$AIX52I/52I_GOLD
-# 
-# export AIX530=/.../austin.ibm.com/fs/projects/aix/aix530
-# export AIX530_latest=$AIX530/latest
-# export AIX530_SERVICE=$AIX530/530_SERVICE
-# export AIX530_GOLD=$AIX530/530_GOLD
-# 
-# # export AIX53A=/.../austin.ibm.com/fs/projects/aix/aix53A
-# # export AIX53A_latest=$AIX53A/latest
-# # export AIX53A_SERVICE=$AIX53A/53A_SERVICE
-# # export AIX53A_GOLD=$AIX53A/53A_GOLD
-# 
-# export AIX53D=/.../austin.ibm.com/fs/projects/aix/aix53D
-# export AIX53D_latest=$AIX53D/latest
-# export AIX53D_SERVICE=$AIX53D/53D_SERVICE
-# export AIX53D_GOLD=$AIX53D/53D_GOLD
-# 
-# export AIX53H=/.../austin.ibm.com/fs/projects/aix/aix53H
-# export AIX53H_latest=$AIX53H/latest
-# export AIX53H_SERVICE=$AIX53H/53H_SERVICE
-# export AIX53H_GOLD=$AIX53H/53H_GOLD
-# 
-# export AIX53J=/.../austin.ibm.com/fs/projects/aix/aix53J
-# export AIX53J_latest=$AIX53J/latest
-# export AIX53J_SERVICE=$AIX53J/53J_SERVICE
-# export AIX53J_GOLD=$AIX53J/53J_GOLD
-# 
-# export AIX53L=/.../austin.ibm.com/fs/projects/aix/aix53L
-# export AIX53L_latest=$AIX53L/latest
-# export AIX53L_SERVICE=$AIX53L/53L_SERVICE
-# export AIX53L_GOLD=$AIX53L/53L_GOLD
-
+aixlevel 610
+aixlevel 61B

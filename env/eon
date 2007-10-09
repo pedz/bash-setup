@@ -11,4 +11,7 @@ export MANPATH=\
 # path to local copy of retain tools on truth
 export HPATH=/usr/local/retain/
 
+# move .Xauthority file out of dfs
+# export XAUTHORITY=/home/pedzan/.Xauthority
+
 source $HOME/.bash/env/aix

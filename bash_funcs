@@ -20,6 +20,16 @@ function prepend-path
     PATH="${1%/}:${PATH}"
 }
 
+start-ztrans()
+{
+    append-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
+}
+
+stop-ztrans()
+{
+    delete-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
+}
+
 start-epkg()
 {
     append-path /gsa/ausgsa/projects/c/cjhs/labr
@@ -58,6 +68,16 @@ start-afs()
 stop-v4()
 {
     delete-path /.../austin.ibm.com/fs/projects/aix/project/ode/bin
+}
+
+start-rp2()
+{
+    append-path /.../austin.ibm.com/fs/projects/aix_tools/bin
+}
+
+stop-rp2()
+{
+    delete-path /.../austin.ibm.com/fs/projects/aix_tools/bin
 }
 
 start-v4()

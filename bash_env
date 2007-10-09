@@ -1,22 +1,6 @@
 
 [[ -n "${debug}" ]] && echo ./bash_env
 
-PATH=\
-.:\
-/home/"${USER}"/bin:\
-${HOME}/bin:\
-/usr/local/bin:\
-/usr/ucb:\
-/bin:\
-/sbin:\
-/usr/bin:\
-/usr/sbin:\
-/etc:\
-/usr/lib:\
-/usr/bin/X11:\
-/usr/X11R6/bin:\
-/usr/vac/bin
-
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
 export EXINIT=":set aw noic sm ai sw=4"
 export EDITOR=/usr/bin/vi
