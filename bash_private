@@ -1,6 +1,0 @@
-export EDITOR=/usr/bin/vi
-export VISUAL=/usr/bin/vi
-if [ -x /usr/local/bin/less ] ; then export PAGER=/usr/local/bin/less; fi
-export EXINIT=":set aw noic sm ai sw=4"
-export MANPATH=/sw/share/man:/usr/X11R6/man:/usr/local/man:/usr/local/pgsql/man:/usr/share/man
-
