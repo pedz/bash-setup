@@ -1,0 +1,9 @@
+
+[[ -n "${debug}" ]] && echo ./rc/eon
+
+
+start-v4
+start-dfs
+start-retain
+start-cmvc
+start-rp2
