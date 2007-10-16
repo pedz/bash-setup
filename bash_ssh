@@ -29,14 +29,15 @@ function ssh-read
 
 function ssh-start
 {
-    output="$( ssh-read )"
+    ssh-read > /tmp/ssh-start-temp
     if [ "$SSH_AGENT_PID" ] ; then
-	echo "$output"
+	cat /tmp/ssh-start-temp
     else
 	ssh-agent > "${SSH_FILE}"
 	. "${SSH_FILE}"
 	ssh-add
     fi
+    rm -f /tmp/ssh-start-temp
 }
 
 ssh-read
