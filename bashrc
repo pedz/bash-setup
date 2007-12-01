@@ -7,8 +7,8 @@
 
 all="{.[0-~]*,..?*,*}"
 
-if [ -f ~/.bash/bash_funcs ]; then source ~/.bash/bash_funcs; fi
-if [ -f ~/.bash/bash_aliases ]; then source ~/.bash/bash_aliases; fi
+if [[ -f ~/.bash/bash_funcs ]] ; then source ~/.bash/bash_funcs; fi
+if [[ -f ~/.bash/bash_aliases ]] ; then source ~/.bash/bash_aliases; fi
 
 history_control=ignoredups
 HISTSIZE=1024
@@ -16,7 +16,7 @@ HISTSIZE=1024
 # Some environment things set HISTFILE (like workon) so if it is not
 # the default, leave it alone.  Otherwise set it to what we want.
 #
-if [ "$HISTFILE" = ~/.bash_history -a -d ~/.bash ] ; then
+if [[ "$HISTFILE" = ~/.bash_history && -d ~/.bash ]]  ; then
     HISTFILE=~/.bash/bash_history
 fi
 hostname_completion_file=/etc/hosts
@@ -46,12 +46,12 @@ fi
 prepend-path /home/"${USER}"/bin
 prepend-path .
 
-if [ -d /usr/vac/bin ] ; then
+if [[ -d /usr/vac/bin ]]  ; then
    PATH=$PATH:/usr/vac/bin
 fi
 
-if [ -n "$PS1" ]; then
-  if [ -n "$level" ]; then
+if [[ -n "$PS1" ]] ; then
+  if [[ -n "$level" ]] ; then
     level=`expr $level + 1`
   else
     level=1
@@ -64,12 +64,12 @@ fi
 
 umask 002
 
-if [ -z "$CDPATH" ]; then
+if [[ -z "$CDPATH" ]] ; then
   CDPATH=".:..:../..:../../..:../../../..:~"
 fi
 
-if [ -f ~/.bash/rc/${HOSTNAME%%.*} ]; then
+if [[ -f ~/.bash/rc/${HOSTNAME%%.*} ]] ; then
     source ~/.bash/rc/${HOSTNAME%%.*}
 fi
 
-if [ -f ~/.bash/bash_ssh ]; then source ~/.bash/bash_ssh; fi
+if [[ -f ~/.bash/bash_ssh ]] ; then source ~/.bash/bash_ssh; fi

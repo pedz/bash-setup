@@ -22,4 +22,8 @@ alias ls="ls -A"
 alias connect-emacs="gnudoit \"(make-frame-on-display \\\"\$DISPLAY\\\")\""
 alias close-emacs="gnudoit \"(x-close-connection \\\"\$DISPLAY\\\")\""
 
-alias fix-tty='stty 3:1c:8:15:4:0:0:11:13:1a:19:12:f:17:16:0:10726:5:d04bd:2a001b:'
+if [[ "$oldTerm" == xterm-color ]] ; then
+  alias fix-tty='stty 3:1c:7f:15:4:0:0:11:13:1a:19:12:f:17:16:0:10726:5:d04bd:2a001b:'
+else
+  alias fix-tty='stty 3:1c:8:15:4:0:0:11:13:1a:19:12:f:17:16:0:10726:5:d04bd:2a001b:'
+fi

@@ -1,6 +1,11 @@
 
 [[ -n "${debug}" ]] && echo ./env/p51
 
+if [[ -n "$PS1" && "$TERM" == xterm-color ]]; then
+    stty erase '^?'
+    oldTerm=$TERM
+    TERM=xterm
+fi
 
 export MANPATH=\
 /usr/man:\
