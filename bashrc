@@ -43,7 +43,12 @@ PATH=\
 if [[ -d /:/home/$USER/bin ]] ; then
     prepend-path "$( cd /:/home/${USER}/bin ; /bin/pwd )"
 fi
-prepend-path /home/"${USER}"/bin
+if [[ -d /home/"${USER}"/bin ]] ; then
+    prepend-path /home/"${USER}"/bin
+fi
+if [[ -d /Users/"${USER}"/bin ]] ; then
+    prepend-path /Users/"${USER}"/bin
+fi
 prepend-path .
 
 if [[ -d /usr/vac/bin ]]  ; then
