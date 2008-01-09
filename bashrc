@@ -1,3 +1,4 @@
+#!/bin/bash
 
 [[ -n "${debug}" ]] && echo ./bashrc
 
@@ -25,34 +26,9 @@ set -o notify
 cdable_vars=
 command_oriented_history=
 
-PATH=\
-/usr/local/bin:\
-/usr/ucb:\
-/bin:\
-/sbin:\
-/usr/bin:\
-/usr/sbin:\
-/etc:\
-/usr/lib:\
-/usr/bin/X11:\
-/usr/X11R6/bin
-
-#
-# Try and put our home/bin directory first and then our dfs home directory
-#
-if [[ -d /:/home/$USER/bin ]] ; then
-    prepend-path "$( cd /:/home/${USER}/bin ; /bin/pwd )"
-fi
-if [[ -d /home/"${USER}"/bin ]] ; then
-    prepend-path /home/"${USER}"/bin
-fi
-if [[ -d /Users/"${USER}"/bin ]] ; then
-    prepend-path /Users/"${USER}"/bin
-fi
-prepend-path .
-
-if [[ -d /usr/vac/bin ]]  ; then
-   PATH=$PATH:/usr/vac/bin
+# Bypass expensive path setting if we have already done it.
+if [[ -z "$VALID_PATH_SET" ]] ; then
+    . ~/.bash/bash_set_path
 fi
 
 if [[ -n "$PS1" ]] ; then
