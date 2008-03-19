@@ -20,6 +20,16 @@ function prepend-path
     PATH="${1%/}:${PATH}"
 }
 
+start-postgres()
+{
+    append-path /usr/local/pgsql/bin
+}
+
+stop-postgres()
+{
+    append-path /usr/local/pgsql/bin
+}
+
 start-ztrans()
 {
     append-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
