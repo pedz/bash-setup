@@ -18,7 +18,9 @@ if [[ -f ~/.bash/bash_env ]] ; then
     source ~/.bash/bash_env
 fi
 
-if [[ -f ~/.bash/env/${HOSTNAME%%.*} ]] ; then
+if [[ -f ~/.bash/env/${HOSTNAME%%.*}-${USER} ]] ; then
+    source ~/.bash/env/${HOSTNAME%%.*}-${USER}
+elif [[ -f ~/.bash/env/${HOSTNAME%%.*} ]] ; then
     source ~/.bash/env/${HOSTNAME%%.*}
 fi
 
