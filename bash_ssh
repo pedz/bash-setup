@@ -5,11 +5,12 @@ SSH_FILE=~/.ssh/ssh-agent-${HOSTNAME%%.*}
 
 function ssh-read
 {
+    TEMP=/tmp/temp.$$
     if [ -f "${SSH_FILE}" ]; then
-	source "${SSH_FILE}" > /tmp/temp
+	source "${SSH_FILE}" > ${TEMP}
 	if /bin/kill -0 $SSH_AGENT_PID 2> /dev/null ; then
 	    if [ -n "$PS1" ]; then
-		cat /tmp/temp
+		cat ${TEMP}
 	    fi
 	else
 	    unset SSH_AUTH_SOCK
@@ -19,7 +20,7 @@ function ssh-read
 		echo No ssh-agent
 	    fi
 	fi
-	rm -f /tmp/temp
+	rm -f ${TEMP}
     else
 	if [ -n "$PS1" ]; then
 	    echo No ssh-agent
@@ -41,3 +42,7 @@ function ssh-start
 }
 
 ssh-read
+
+# Local Variables: **
+# mode:shell-script **
+# End: **
