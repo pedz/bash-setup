@@ -1,0 +1,8 @@
+
+unset EXINIT
+unset EDITOR
+unset VISUAL
+
+export PAGER=cat
+export EDITOR=emacsclient
+export EMACS_ENV=t
