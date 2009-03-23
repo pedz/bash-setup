@@ -11,7 +11,8 @@ export MANPATH=\
 /usr/man:\
 /usr/local/man:\
 /usr/local/ssl/man:\
-/usr/local/share/man
+/usr/local/share/man:\
+/usr/local/pgsql/man
 
 # path to local copy of retain tools on truth
 export HPATH=/usr/local/retain/

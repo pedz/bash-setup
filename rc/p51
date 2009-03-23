@@ -1,8 +1,10 @@
 
-[[ -n "${debug}" ]] && echo ./rc/eon
+[[ -n "${debug}" ]] && echo ./rc/p51
 
 start-v4
 start-dfs
 start-retain
 start-cmvc
 start-rp2
+
+append-path /usr/local/pgsql/bin
