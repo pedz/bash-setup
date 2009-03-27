@@ -1,6 +1,6 @@
+#!/bin/bash
 
 [[ -n "${debug}" ]] && echo ./bash_funcs
-
 
 function delete-path
 {
@@ -187,4 +187,10 @@ function dcd ()
        command "$cmd" $( echo "${PWD}" | sed -e "s%$1%$2%" );;
     *) echo "Too many arguments to $cmd" 1>&2;;
   esac
+}
+
+function put-local-last ()
+{
+    delete-path /usr/local/bin
+    append-path /usr/local/bin
 }
