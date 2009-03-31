@@ -1,30 +1,41 @@
 
 [[ -n "${debug}" ]] && echo ./env/aix
 
-function aixlevel
+function dfs_aixlevel
 {
-    local base="${AIXBASE}/aix${1}"
+    local base="${DFS_AIXBASE}/aix${1}"
     eval export AIX${1}="$base"
     eval export AIX${1}_latest=${base}/latest
     eval export AIX${1}_SERVICE=${base}/${1}_SERVICE
     eval export AIX${1}_GOLD=${base}/${1}_GOLD
 }
 
-export AIXBASE="/.../austin.ibm.com/fs/projects/aix"
+function gsa_aixlevel
+{
+    local base="${GSA_AIXBASE}/aix${1}"
+    eval export AIX${1}="$base"
+    eval export AIX${1}_latest=${base}/latest
+    eval export AIX${1}_SERVICE=${base}/${1}_SERVICE
+    eval export AIX${1}_GOLD=${base}/${1}_GOLD
+}
 
-aixlevel 52I
-aixlevel 52L
-aixlevel 52M
-aixlevel 52Q
-aixlevel 52S
+export DFS_AIXBASE="/.../austin.ibm.com/fs/projects/aix"
+export GSA_AIXBASE="/gsa/ausgsa/projects/a/aix"
+export AIXBASE="$GSA_AIXBASE"
 
-aixlevel 53A
-aixlevel 53D
-aixlevel 53E
-aixlevel 53J
-aixlevel 53H
-aixlevel 53L
-aixlevel 53N
+gsa_aixlevel 52I
+gsa_aixlevel 52L
+gsa_aixlevel 52M
+gsa_aixlevel 52Q
+gsa_aixlevel 52S
 
-aixlevel 610
-aixlevel 61B
+gsa_aixlevel 53A
+gsa_aixlevel 53D
+gsa_aixlevel 53E
+gsa_aixlevel 53J
+gsa_aixlevel 53H
+gsa_aixlevel 53L
+gsa_aixlevel 53N
+
+gsa_aixlevel 610
+gsa_aixlevel 61B
