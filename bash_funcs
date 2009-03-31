@@ -105,8 +105,7 @@ stop-cmvc()
     unset CMVC_RELEASE
     unset CMVC_TOP
     unset PROD
-    # PATH=$( echo "${PATH}" | \
-    #         sed -e s%:/usr/lpp/cmvc/bin:/usr/lpp/cmvc/samples%% )
+    delete-path /usr/local/cmvc/bin
 }
 
 start-cmvc()
@@ -122,7 +121,7 @@ start-cmvc()
     export PROD=bos
     export CMVC_FAMILY=aix
     export CMVC_BECOME=pedzan
-    # PATH=$PATH:/usr/lpp/cmvc/bin:/usr/lpp/cmvc/samples
+    append-path /usr/local/cmvc/bin
 }
 
 stop-retain()
