@@ -7,11 +7,11 @@ if [[ -n "$PS1" && "$TERM" == xterm-color ]]; then
     TERM=xterm
 fi
 
-export MANPATH=\
-/usr/man:\
-/usr/local/man:\
-/usr/local/ssl/man:\
-/usr/local/share/man
+# export MANPATH=\
+# /usr/man:\
+# /usr/local/man:\
+# /usr/local/ssl/man:\
+# /usr/local/share/man
 
 export PGUSER=pedzan
 export PGDATABASE=raptor_production
