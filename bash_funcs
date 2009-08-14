@@ -50,6 +50,16 @@ stop-epkg()
     delete-path /gsa/ausgsa/projects/c/cjhs/labr
 }
 
+stop-gsa()
+{
+    true
+}
+
+start-gsa()
+{
+    true
+}
+
 stop-dfs()
 {
     delete-path /usr/contrib/bin
