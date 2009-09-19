@@ -1,5 +1,5 @@
 
-[[ -n "${debug}" ]] && echo ./rc/truth2
+[[ -n "${debug}" ]] && echo ./rc/quinta6
 
 
 start-v4

@@ -6,5 +6,4 @@ start-gsa
 start-retain
 start-cmvc
 start-rp2
-
-append-path /usr/local/pgsql/bin
+start-postgres

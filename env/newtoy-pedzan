@@ -1,5 +1,5 @@
 
-[[ -n "${debug}" ]] && echo ./env/p51
+[[ -n "${debug}" ]] && echo ./env/newtoy-pedzan
 
 if [[ -n "$PS1" && "$TERM" == xterm-color ]]; then
     stty erase '^?'

@@ -2,10 +2,6 @@
 
 [[ -n "${debug}" ]] && echo ./bashrc
 
-#
-# @(#)dot.bashrc	1.1
-#
-
 all="{.[0-~]*,..?*,*}"
 
 if [[ -f ~/.bash/bash_funcs ]] ; then source ~/.bash/bash_funcs; fi
@@ -23,6 +19,7 @@ fi
 hostname_completion_file=/etc/hosts
 auto_resume=""
 set -o notify
+set -o emacs
 cdable_vars=
 command_oriented_history=
 

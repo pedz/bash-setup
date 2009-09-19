@@ -1,0 +1,3 @@
+[[ -n "${debug}" ]] && echo ./rc/tcp237-apache
+
+start-postgres

@@ -1,5 +1,5 @@
 
-[[ -n "${debug}" ]] && echo ./env/truth2
+[[ -n "${debug}" ]] && echo ./env/quinta6
 
 
 export MANPATH=\
