@@ -36,6 +36,9 @@ unset temp
 if [[ -d /:/home/$USER/bin ]] ; then
     prepend-path "$( cd /:/home/${USER}/bin ; /bin/pwd )"
 fi
+if echo $HOME | egrep -s /gsa > /dev/null ; then
+    prepend-path $HOME/bin
+fi
 if [[ -d /home/"${USER}"/bin ]] ; then
     prepend-path /home/"${USER}"/bin
 fi

@@ -20,95 +20,95 @@ function prepend-path
     PATH="${1%/}:${PATH}"
 }
 
-start-postgres()
+function start-postgres()
 {
     append-path /usr/local/pgsql/bin
 }
 
-stop-postgres()
+function stop-postgres()
 {
     append-path /usr/local/pgsql/bin
 }
 
-start-ztrans()
+function start-ztrans()
 {
     append-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
 }
 
-stop-ztrans()
+function stop-ztrans()
 {
     delete-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
 }
 
-start-epkg()
+function start-epkg()
 {
     append-path /gsa/ausgsa/projects/c/cjhs/labr
 }
 
-stop-epkg()
+function stop-epkg()
 {
     delete-path /gsa/ausgsa/projects/c/cjhs/labr
 }
 
-stop-gsa()
+function stop-gsa()
 {
     true
 }
 
-start-gsa()
+function start-gsa()
 {
     true
 }
 
-stop-dfs()
+function stop-dfs()
 {
     delete-path /usr/contrib/bin
     delete-path /usr/prod/bin
 }
 
-start-dfs()
+function start-dfs()
 {
     append-path /usr/contrib/bin
     append-path /usr/prod/bin
 }
 
 
-stop-afs()
+function stop-afs()
 {
     delete-path /usr/afs/bin
     delete-path /afs/austin/local/bin
 }
 
-start-afs()
+function start-afs()
 {
     append-path /usr/afs/bin
     append-path /afs/austin/local/bin
 }
 
-stop-v4()
+function stop-v4()
 {
-    delete-path /.../austin.ibm.com/fs/projects/aix/project/ode/bin
+    delete-path /gsa/ausgsa/projects/a/aix/project/ode/bin
 }
 
-start-rp2()
+function start-v4()
 {
-    append-path /.../austin.ibm.com/fs/projects/aix_tools/bin
-}
-
-stop-rp2()
-{
-    delete-path /.../austin.ibm.com/fs/projects/aix_tools/bin
-}
-
-start-v4()
-{
-    append-path /.../austin.ibm.com/fs/projects/aix/project/ode/bin
+    append-path /gsa/ausgsa/projects/a/aix/project/ode/bin
     CDPATH="$( echo "${CDPATH}" | sed -e 's%:[^:]*/sb/[^:]*%%g' )"
     CDPATH="$( echo "${CDPATH}" | sed -e 's%:[^:]*/clone/[^:]*%%g' )"
     CDPATH="${CDPATH}:${SOURCEBASE}"
 }
 
-stop-cmvc()
+function start-rp2()
+{
+    append-path /gsa/ausgsa/projects/a/aix_tools/bin
+}
+
+function stop-rp2()
+{
+    delete-path /gsa/ausgsa/projects/a/aix_tools/bin
+}
+
+function stop-cmvc()
 {
     unset CMVC_FAMILY
     unset CMVC_BECOME
@@ -118,7 +118,7 @@ stop-cmvc()
     delete-path /usr/local/cmvc/bin
 }
 
-start-cmvc()
+function start-cmvc()
 {
     local cmvc_release="$CMVC_RELEASE"
     stop-cmvc
@@ -134,7 +134,7 @@ start-cmvc()
     append-path /usr/local/cmvc/bin
 }
 
-stop-retain()
+function stop-retain()
 {
     if [[ -n "${HPATH}" ]] ; then
 	delete-path "${HPATH}"
@@ -156,7 +156,7 @@ stop-retain()
     fi
 }
 
-start-retain()
+function start-retain()
 {
     local hpath="${HPATH:-/.../austin.ibm.com/fs/projects/service/usr/bin/retain/}"
     stop-retain
