@@ -3,7 +3,7 @@
 
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
 export EXINIT=":set aw noic sm ai sw=4"
-export EDITOR=/usr/bin/vi
+export EDITOR="${EDITOR:-/usr/bin/vi}"
 export VISUAL=/usr/bin/vi
 
 if [[ -f ~/.bash/env/${HOSTNAME%%.*}-${USER} ]] ; then
