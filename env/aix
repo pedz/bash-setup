@@ -24,19 +24,25 @@ export DFS_AIXBASE="/.../austin.ibm.com/fs/projects/aix"
 export GSA_AIXBASE="/gsa/ausgsa/projects/a/aix"
 export AIXBASE="$GSA_AIXBASE"
 
-gsa_aixlevel 52I
-gsa_aixlevel 52L
-gsa_aixlevel 52M
-gsa_aixlevel 52Q
+# gsa_aixlevel 52I
+# gsa_aixlevel 52L
+# gsa_aixlevel 52M
+# gsa_aixlevel 52Q
 gsa_aixlevel 52S
 
-gsa_aixlevel 53A
-gsa_aixlevel 53D
-gsa_aixlevel 53E
-gsa_aixlevel 53J
-gsa_aixlevel 53H
+# gsa_aixlevel 53A
+# gsa_aixlevel 53D
+# gsa_aixlevel 53E
+# gsa_aixlevel 53J
+# gsa_aixlevel 53H
 gsa_aixlevel 53L
 gsa_aixlevel 53N
+gsa_aixlevel 53Q
+gsa_aixlevel 53S
+gsa_aixlevel 53V
 
 gsa_aixlevel 610
 gsa_aixlevel 61B
+gsa_aixlevel 61D
+gsa_aixlevel 61F
+gsa_aixlevel 61H
