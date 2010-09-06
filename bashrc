@@ -53,7 +53,8 @@ fi
 
 if [[ -f ~/.bash/rc/${HOSTNAME%%.*}-${USER} ]] ; then
     source ~/.bash/rc/${HOSTNAME%%.*}-${USER}
-elif [[ -f ~/.bash/rc/${HOSTNAME%%.*} ]] ; then
+fi
+if [[ -f ~/.bash/rc/${HOSTNAME%%.*} ]] ; then
     source ~/.bash/rc/${HOSTNAME%%.*}
 fi
 
