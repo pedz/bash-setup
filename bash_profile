@@ -1,5 +1,5 @@
 
-debug=1
+# debug=1
 
 [[ -n "${debug}" ]] && echo ./bash_profile
 
