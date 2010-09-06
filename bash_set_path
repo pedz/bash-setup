@@ -3,7 +3,7 @@
 # intended to be included at login or startup time by bashrc.
 #
 
-[[ -n "${debug}" ]] && echo ./bashrc_set_path
+[[ -n "${debug}" ]] && echo ./bash_set_path
 
 temp=""
 for i in \

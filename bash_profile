@@ -1,5 +1,5 @@
 
-# debug=1
+debug=1
 
 [[ -n "${debug}" ]] && echo ./bash_profile
 
@@ -21,3 +21,4 @@ fi
 if [[ -f ~/.bash/bashrc ]] ; then
     source ~/.bash/bashrc
 fi
+
