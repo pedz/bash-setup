@@ -184,6 +184,35 @@ function back()
     pwd | sed -e "s%$BASE%$BASE/link%"
 }
 
+# If we are on a host that has rvm, then post_cd will
+# execute rvm's cd command with "." as its argument
+if [[ $( type -t __rvm_project_rvmrc ) = "function" ]] ; then
+
+  # create "rvm_cd" to be rvm's original cd
+  eval "$( typeset -f cd | sed -e 's%^cd %_pedz_rvm_cd %' )"
+
+  function post_cd ()
+  {
+    _pedz_rvm_cd .
+  }
+
+  # In this case, we also redefine popd:
+  function popd ()
+  {
+    command popd "$@"
+    local result=$?
+    if [[ "$result" -eq 0 ]] ; then
+      _pedz_rvm_cd .
+    fi
+    return $result
+  }
+else
+  function post_cd ()
+  {
+    return 0
+  }
+fi
+
 function dcd ()
 {
   local cmd="$1"
@@ -194,8 +223,14 @@ function dcd ()
     2) local where=$( echo "${PWD}" | sed -e "s%$1%$2%" )
        echo "${where}"
        command "$cmd" $( echo "${PWD}" | sed -e "s%$1%$2%" );;
-    *) echo "Too many arguments to $cmd" 1>&2;;
+    *) echo "Too many arguments to $cmd" 1>&2
+       return 1;;
   esac
+  local result=$?
+  if [[ "$result" -eq 0 ]] ; then
+    post_cd
+  fi
+  return $result
 }
 
 function put-local-last ()

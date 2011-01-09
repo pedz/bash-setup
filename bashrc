@@ -4,6 +4,10 @@
 
 all="{.[0-~]*,..?*,*}"
 
+# Unfortunately, this needs to be before bash_funcs and bash_aliases
+RVMRC=/usr/local/lib/rvm
+[[ -s "${RVMRC}" ]] && source "${RVMRC}"
+
 if [[ -f ~/.bash/bash_funcs ]] ; then source ~/.bash/bash_funcs; fi
 if [[ -f ~/.bash/bash_aliases ]] ; then source ~/.bash/bash_aliases; fi
 
