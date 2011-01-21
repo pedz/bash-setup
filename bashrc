@@ -4,13 +4,6 @@
 
 all="{.[0-~]*,..?*,*}"
 
-# Unfortunately, this needs to be before bash_funcs and bash_aliases
-RVMRC=/usr/local/lib/rvm
-[[ -s "${RVMRC}" ]] && source "${RVMRC}"
-
-if [[ -f ~/.bash/bash_funcs ]] ; then source ~/.bash/bash_funcs; fi
-if [[ -f ~/.bash/bash_aliases ]] ; then source ~/.bash/bash_aliases; fi
-
 history_control=ignoredups
 HISTSIZE=1024
 #
@@ -27,10 +20,21 @@ set -o emacs
 cdable_vars=
 command_oriented_history=
 
+# The funcs are needed before bash_set_path is called.
+if [[ -f ~/.bash/bash_funcs ]] ; then source ~/.bash/bash_funcs; fi
+
 # Bypass expensive path setting if we have already done it.
 if [[ -z "$VALID_PATH_SET" ]] ; then
     . ~/.bash/bash_set_path
 fi
+
+# We must call the rvm setup *after* setting up our path but before
+# calling the aliases because the aliases confuse the rvm scripts.
+RVMRC=/usr/local/lib/rvm
+[[ -s "${RVMRC}" ]] && source "${RVMRC}"
+create_post_cd
+
+if [[ -f ~/.bash/bash_aliases ]] ; then source ~/.bash/bash_aliases; fi
 
 if [[ -n "$PS1" ]] ; then
   if [[ -n "$level" ]] ; then

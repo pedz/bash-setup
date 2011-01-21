@@ -5,7 +5,7 @@
 function delete-path
 {
     PATH="$( echo "${PATH}" | \
-	     sed -e "s%^${1%/}:%%" -e "s%:${1%/}:%:%" -e "s%:${1%/}\$%%" )"
+	     sed -e "s%^${1%/}:%%" -e "s%:${1%/}:%:%g" -e "s%:${1%/}\$%%" )"
 }
 
 function append-path
@@ -184,45 +184,52 @@ function back()
     pwd | sed -e "s%$BASE%$BASE/link%"
 }
 
+function create_post_cd()
+{
 # If we are on a host that has rvm, then post_cd will
 # execute rvm's cd command with "." as its argument
-if [[ $( type -t __rvm_project_rvmrc ) = "function" ]] ; then
+    if [[ $( type -t __rvm_project_rvmrc ) = "function" ]] ; then
 
-  # create "rvm_cd" to be rvm's original cd
-  eval "$( typeset -f cd | sed -e 's%^cd %_pedz_rvm_cd %' )"
+        # create "rvm_cd" to be rvm's original cd.  We change the name
+	# to _pedz_rvm_cd, we remove the call to the builtin cd, and
+	# we remove all references to result (setting and returning).
+	eval "$( typeset -f cd |
+                 sed -e 's%^cd %_pedz_rvm_cd %' -e '/builtin cd/d' -e '/result/d' )"
+	unset cd
 
-  function post_cd ()
-  {
-    _pedz_rvm_cd .
-  }
+	function post_cd ()
+	{
+	    _pedz_rvm_cd
+	}
 
   # In this case, we also redefine popd:
-  function popd ()
-  {
-    command popd "$@"
-    local result=$?
-    if [[ "$result" -eq 0 ]] ; then
-      _pedz_rvm_cd .
+	function popd ()
+	{
+	    builtin popd "$@"
+	    local result=$?
+	    if [[ "$result" -eq 0 ]] ; then
+		_pedz_rvm_cd
+	    fi
+	    return $result
+	}
+    else
+	function post_cd ()
+	{
+	    return 0
+	}
     fi
-    return $result
-  }
-else
-  function post_cd ()
-  {
-    return 0
-  }
-fi
+}
 
 function dcd ()
 {
   local cmd="$1"
   shift
   case $# in
-    0) command "$cmd";;
-    1) command "$cmd" "$1";;
+    0) builtin "$cmd";;
+    1) builtin "$cmd" "$1";;
     2) local where=$( echo "${PWD}" | sed -e "s%$1%$2%" )
        echo "${where}"
-       command "$cmd" $( echo "${PWD}" | sed -e "s%$1%$2%" );;
+       builtin "$cmd" $( echo "${PWD}" | sed -e "s%$1%$2%" );;
     *) echo "Too many arguments to $cmd" 1>&2
        return 1;;
   esac
