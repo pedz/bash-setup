@@ -32,7 +32,12 @@ fi
 # calling the aliases because the aliases confuse the rvm scripts.
 RVMRC=/usr/local/lib/rvm
 [[ -s "${RVMRC}" ]] && source "${RVMRC}"
+
+# create the post_cd function.  Must be done after rvmrc is loaded.
 create_post_cd
+
+# needed to pick up any directory specific configuration.
+post_cd
 
 if [[ -f ~/.bash/bash_aliases ]] ; then source ~/.bash/bash_aliases; fi
 
