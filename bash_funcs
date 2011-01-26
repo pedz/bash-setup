@@ -158,7 +158,7 @@ function stop-retain()
 
 function start-retain()
 {
-    local hpath="${HPATH:-/.../austin.ibm.com/fs/projects/service/usr/bin/retain/}"
+    local hpath="${HPATH:-/gsa/ausgsa/projects/s/service/usr/bin/retain/hlogin}"
     stop-retain
 
     export CENTER=165
@@ -172,7 +172,7 @@ function start-retain()
     export RETQUEUE=pedz,165
     export RET_PSAR=1
     export NQ="ptty,165"
-    export SCROWNER="Perry Smith T/L 793-5772"
+    export SCROWNER="Perry Smith T/L 363-8630"
     export SCRTEAM="ptty,165"
 
     prepend-path "${HPATH}"
@@ -181,7 +181,7 @@ function start-retain()
 
 function back()
 {
-    pwd | sed -e "s%$BASE%$BASE/link%"
+    /bin/pwd | sed -e "s%$( cd $BASE; /bin/pwd )%$BASE/link%"
 }
 
 function create_post_cd()
@@ -244,4 +244,22 @@ function put-local-last ()
 {
     delete-path /usr/local/bin
     append-path /usr/local/bin
+}
+
+function start-cq()
+{
+  export CQCMD_AUTHMETHOD=netrc
+  export CQCMD_SCHEMA=STGC_AIX
+  export CQCMD_DATABASE=AIXOS
+  export CQCMD_HOST=auscqweb.austin.ibm.com
+
+  export CONFIGURATION_MANAGER=cq
+  export CMVC_FAMILY=aix
+  export CMVC_BECOME=your_cmvc_id
+
+  append-path /gsa/ausgsa/projects/a/aixtools/bin
+  append-path /opt/rational/clearcase/bin
+  append-path /usr/atria/bin
+
+  . /opt/rational/clearquest/cq_setup.sh
 }

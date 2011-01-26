@@ -1,5 +1,6 @@
 
 # debug=1
+# echo $PATH | tr : '\n'
 
 [[ -n "${debug}" ]] && echo ./bash_profile
 

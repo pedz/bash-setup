@@ -28,6 +28,7 @@ for i in \
     fi
 done
 PATH="$temp"
+# echo $PATH | tr : '\n'
 unset temp
 
 #
