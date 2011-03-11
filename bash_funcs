@@ -27,7 +27,7 @@ function start-postgres()
 
 function stop-postgres()
 {
-    append-path /usr/local/pgsql/bin
+    delete-path /usr/local/pgsql/bin
 }
 
 function start-ztrans()
