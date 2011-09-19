@@ -8,8 +8,5 @@ export MANPATH=\
 /usr/local/ssl/man:\
 /usr/local/share/man
 
-# path to local copy of retain tools on truth
-export HPATH=/tc/l3tcp/tty/retain/
-
 source $HOME/.bash/env/aix
 export TCDIR=/tc/user1/pedzan

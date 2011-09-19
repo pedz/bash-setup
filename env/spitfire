@@ -1,0 +1,20 @@
+
+[[ -n "${debug}" ]] && echo ./env/p51
+
+if [[ -n "$PS1" && "$TERM" == xterm-color ]]; then
+    stty erase '^?'
+    oldTerm=$TERM
+    TERM=xterm
+fi
+
+export MANPATH=\
+/usr/man:\
+/usr/local/man:\
+/usr/local/ssl/man:\
+/usr/local/share/man:\
+/usr/local/pgsql/man
+
+# path to local copy of retain tools on truth
+export HPATH=/usr/local/retain/
+
+source $HOME/.bash/env/aix

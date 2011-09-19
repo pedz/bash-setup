@@ -1,5 +1,5 @@
 
-[[ -n "${debug}" ]] && echo ./env/truth2
+[[ -n "${debug}" ]] && echo ./env/arch
 
 
 export MANPATH=\
@@ -9,4 +9,4 @@ export MANPATH=\
 /usr/local/share/man
 
 source $HOME/.bash/env/aix
-export TCDIR=/tc/pedzan
+export TCDIR=/tc/user1/pedzan

@@ -158,7 +158,7 @@ function stop-retain()
 
 function start-retain()
 {
-    local hpath="${HPATH:-/gsa/ausgsa/projects/s/service/usr/bin/retain/hlogin}"
+    local hpath="${HPATH:-/gsa/ausgsa/projects/s/service/usr/bin/retain}"
     stop-retain
 
     export CENTER=165

@@ -1,9 +1,9 @@
 
-[[ -n "${debug}" ]] && echo ./rc/quinta6
-
+[[ -n "${debug}" ]] && echo ./rc/p51
 
 start-v4
 start-gsa
 start-retain
 start-cmvc
 start-rp2
+start-postgres
