@@ -1,0 +1,3 @@
+[[ -n "${debug}" ]] && echo ./rc/magicbook
+
+start-postgres
