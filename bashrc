@@ -25,7 +25,6 @@ fi
 # calling the aliases because the aliases confuse the rvm scripts.
 RVMRC="/usr/local/lib/rvm /etc/profile.d/rvm.sh"
 if [[ -z "$rvm_path" ]] ; then
-    echo "in here"
     for i in $RVMRC ; do
 	if [[ -s "$i" ]] ; then
 	    source "$i"
