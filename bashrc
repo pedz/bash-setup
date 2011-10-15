@@ -6,13 +6,6 @@ all="{.[0-~]*,..?*,*}"
 
 history_control=ignoredups
 HISTSIZE=1024
-#
-# Some environment things set HISTFILE (like workon) so if it is not
-# the default, leave it alone.  Otherwise set it to what we want.
-#
-if [[ "$HISTFILE" = ~/.bash_history && -d ~/.bash ]]  ; then
-    HISTFILE=~/.bash/bash_history
-fi
 hostname_completion_file=/etc/hosts
 auto_resume=""
 set -o notify
@@ -30,8 +23,16 @@ fi
 
 # We must call the rvm setup *after* setting up our path but before
 # calling the aliases because the aliases confuse the rvm scripts.
-RVMRC=/usr/local/lib/rvm
-[[ -s "${RVMRC}" ]] && source "${RVMRC}"
+RVMRC="/usr/local/lib/rvm /etc/profile.d/rvm.sh"
+if [[ -z "$rvm_path" ]] ; then
+    echo "in here"
+    for i in $RVMRC ; do
+	if [[ -s "$i" ]] ; then
+	    source "$i"
+	    break;
+	fi
+    done
+fi
 
 # create the post_cd function.  Must be done after rvmrc is loaded.
 create_post_cd

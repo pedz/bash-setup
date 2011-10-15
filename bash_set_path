@@ -5,7 +5,6 @@
 
 [[ -n "${debug}" ]] && echo ./bash_set_path
 
-temp=""
 for i in \
     /usr/local/bin \
     /usr/ucb \
@@ -20,31 +19,14 @@ for i in \
     /usr/vac/bin \
     ; do
     if [[ -d "$i" ]] ; then
-	if [[ -z "$temp" ]] ; then
-	    temp=$i
-	else
-	    temp="$temp:$i"
-	fi
+	append-path $i
     fi
 done
-PATH="$temp"
 # echo $PATH | tr : '\n'
-unset temp
 
-#
-# Try and put our home/bin directory first and then our dfs home directory.
-#
-if [[ -d /:/home/$USER/bin ]] ; then
-    prepend-path "$( cd /:/home/${USER}/bin ; /bin/pwd )"
-fi
-if echo $HOME | egrep -s /gsa > /dev/null ; then
-    prepend-path $HOME/bin
-fi
-if [[ -d /home/"${USER}"/bin ]] ; then
-    prepend-path /home/"${USER}"/bin
-fi
-if [[ -d /Users/"${USER}"/bin ]] ; then
-    prepend-path /Users/"${USER}"/bin
+# Prepend person bin directory
+if [[ -d "${HOME}/bin" ]] ; then
+    prepend-path "${HOME}/bin"
 fi
 prepend-path .
 
