@@ -22,7 +22,7 @@ function prepend-path
 
 function start-postgres()
 {
-    append-path /usr/local/pgsql/bin
+    prepend-path /usr/local/pgsql/bin
 }
 
 function stop-postgres()
