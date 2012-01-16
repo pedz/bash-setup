@@ -1,0 +1,2 @@
+export PGDATABASE=raptor_production
+export RAILS_ENV=production
