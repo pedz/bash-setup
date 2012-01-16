@@ -22,7 +22,8 @@ function prepend-path
 
 function start-postgres()
 {
-    append-path /usr/local/pgsql/bin
+    # Use prepend here to avoid Mac OS X's versions :-P
+    prepend-path /usr/local/pgsql/bin
 }
 
 function stop-postgres()
@@ -189,12 +190,11 @@ function create_post_cd()
 # If we are on a host that has rvm, then post_cd will
 # execute rvm's cd command with "." as its argument
     if [[ $( type -t __rvm_project_rvmrc ) = "function" ]] ; then
-
         # create "rvm_cd" to be rvm's original cd.  We change the name
 	# to _pedz_rvm_cd, we remove the call to the builtin cd, and
 	# we remove all references to result (setting and returning).
 	eval "$( typeset -f cd |
-                 sed -e 's%^cd %_pedz_rvm_cd %' -e '/builtin cd/d' -e '/result/d' )"
+                 sed -ne 's%^cd ()%_pedz_rvm_cd ()%' -e '/rvm/p' -e '/[{}]/p' )"
 	unset cd
 
 	function post_cd ()

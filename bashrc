@@ -21,17 +21,19 @@ if [[ -z "$VALID_PATH_SET" ]] ; then
     . ~/.bash/bash_set_path
 fi
 
+# Now we include this in bash_profile
+#
 # We must call the rvm setup *after* setting up our path but before
 # calling the aliases because the aliases confuse the rvm scripts.
-RVMRC="/usr/local/lib/rvm /etc/profile.d/rvm.sh"
-if [[ -z "$rvm_path" ]] ; then
-    for i in $RVMRC ; do
-	if [[ -s "$i" ]] ; then
-	    source "$i"
-	    break;
-	fi
-    done
-fi
+# RVMRC="/usr/local/lib/rvm /etc/profile.d/rvm.sh"
+# if [[ -z "$rvm_path" ]] ; then
+#     for i in $RVMRC ; do
+# 	if [[ -s "$i" ]] ; then
+# 	    source "$i"
+# 	    break;
+# 	fi
+#     done
+# fi
 
 # create the post_cd function.  Must be done after rvmrc is loaded.
 create_post_cd
