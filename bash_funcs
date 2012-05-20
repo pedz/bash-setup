@@ -187,8 +187,8 @@ function back()
 
 function create_post_cd()
 {
-# If we are on a host that has rvm, then post_cd will
-# execute rvm's cd command with "." as its argument
+    # If we are on a host that has rvm, then post_cd will
+    # execute rvm's cd command with "." as its argument
     if [[ $( type -t __rvm_project_rvmrc ) = "function" ]] ; then
         # create "rvm_cd" to be rvm's original cd.  We change the name
 	# to _pedz_rvm_cd, we remove the call to the builtin cd, and
@@ -202,7 +202,7 @@ function create_post_cd()
 	    _pedz_rvm_cd
 	}
 
-  # In this case, we also redefine popd:
+        # In this case, we also redefine popd:
 	function popd ()
 	{
 	    builtin popd "$@"
@@ -222,22 +222,22 @@ function create_post_cd()
 
 function dcd ()
 {
-  local cmd="$1"
-  shift
-  case $# in
-    0) builtin "$cmd";;
-    1) builtin "$cmd" "$1";;
-    2) local where=$( echo "${PWD}" | sed -e "s%$1%$2%" )
-       echo "${where}"
-       builtin "$cmd" $( echo "${PWD}" | sed -e "s%$1%$2%" );;
-    *) echo "Too many arguments to $cmd" 1>&2
-       return 1;;
-  esac
-  local result=$?
-  if [[ "$result" -eq 0 ]] ; then
-    post_cd
-  fi
-  return $result
+    local cmd="$1"
+    shift
+    case $# in
+	0) builtin "$cmd";;
+	1) builtin "$cmd" "$1";;
+	2)  local where=$( echo "${PWD}" | sed -e "s%$1%$2%" );
+	    echo "${where}";
+	    builtin "$cmd" "${where}";;
+	*) echo "Too many arguments to $cmd" 1>&2
+	    return 1;;
+    esac
+    local result=$?
+    if [[ "$result" -eq 0 ]] ; then
+	post_cd
+    fi
+    return $result
 }
 
 function put-local-last ()
@@ -248,25 +248,35 @@ function put-local-last ()
 
 function start-cq()
 {
-  export CQCMD_AUTHMETHOD=netrc
-  export CQCMD_SCHEMA=STGC_AIX
-  export CQCMD_DATABASE=AIXOS
-  export CQCMD_HOST=auscqweb.austin.ibm.com
+    export CQCMD_AUTHMETHOD=netrc
+    export CQCMD_SCHEMA=STGC_AIX
+    export CQCMD_DATABASE=AIXOS
+    export CQCMD_HOST=auscqweb.austin.ibm.com
 
-  export CONFIGURATION_MANAGER=cq
-  export CMVC_FAMILY=aix
-  export CMVC_BECOME=your_cmvc_id
+    export CONFIGURATION_MANAGER=cq
+    export CMVC_FAMILY=aix
+    export CMVC_BECOME=your_cmvc_id
 
-  append-path /gsa/ausgsa/projects/a/aixtools/bin
-  append-path /opt/rational/clearcase/bin
-  append-path /usr/atria/bin
+    append-path /gsa/ausgsa/projects/a/aixtools/bin
+    append-path /opt/rational/clearcase/bin
+    append-path /usr/atria/bin
 
-  . /opt/rational/clearquest/cq_setup.sh
+    . /opt/rational/clearquest/cq_setup.sh
 }
 
 function start-rvm()
 {
-  if [[ -z "${rvm_path}" && -f /etc/profile.d/rvm.sh ]] ; then
-    source /etc/profile.d/rvm.sh
-  fi
+    if [[ -z "${rvm_path}" && -f /etc/profile.d/rvm.sh ]] ; then
+	local need_alias=
+	if [[ $( type -t cd ) == "alias" ]] ; then
+	    need_alias=t
+	    unalias cd
+	fi
+	source /etc/profile.d/rvm.sh
+	create_post_cd
+	if [[ $need_alias ]] ; then
+	    alias cd='dcd cd'
+	fi
+	post_cd
+    fi
 }
