@@ -263,3 +263,10 @@ function start-cq()
 
   . /opt/rational/clearquest/cq_setup.sh
 }
+
+function start-rvm()
+{
+  if [[ -z "${rvm_path}" && -f /etc/profile.d/rvm.sh ]] ; then
+    source /etc/profile.d/rvm.sh
+  fi
+}
