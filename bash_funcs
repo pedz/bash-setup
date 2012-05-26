@@ -2,6 +2,11 @@
 
 [[ -n "${debug}" ]] && echo ./bash_funcs
 
+function delete-path-elements
+{
+    delete-path "$1[^:]*"
+}
+
 function delete-path
 {
     PATH="$( echo "${PATH}" | \
@@ -16,8 +21,16 @@ function append-path
 
 function prepend-path
 {
+    local flag
+    if [[ "${PATH%%:*}" == "." ]] ; then
+	flag=t
+	PATH="${PATH#*:}"
+    fi
     delete-path "${1%/}"
     PATH="${1%/}:${PATH}"
+    if [[ "$flag" ]] ; then
+	PATH=".:$PATH"
+    fi
 }
 
 function start-postgres()
