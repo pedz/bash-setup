@@ -46,7 +46,7 @@ fi
 umask 002
 
 if [[ -z "$CDPATH" ]] ; then
-  CDPATH=".:..:../..:../../..:../../../..:~"
+  CDPATH="..:../..:../../..:../../../..:~"
 fi
 
 # A subshell from emacs does not start from the profile so suck in special environment
