@@ -263,3 +263,26 @@ function start-cq()
 
   . /opt/rational/clearquest/cq_setup.sh
 }
+
+function autolog()
+{
+    if [[ -z "$GSA_MAGIC" ]] ; then
+	logger_file=/tc/user1/pedzan/.gsa_logger
+	if [[ ! -r "${logger_file}" ]] ; then
+	    hostname=$( hostname )
+	    logger_file=/tc/user1/pedzan/.gsa/${hostname%%.*}
+	    if [[ ! -r "${logger_file}" ]] ; then
+		unset logger_file
+	    fi
+	fi
+	if [[ -n "${logger_file}" ]] ; then
+	    unset level
+	    export GSA_MAGIC=$1
+	    shift
+	    exec gsa_logger pedzan "${logger_file}" ${GSA_MAGIC#-} bash -li "$@"
+	fi
+    fi
+    if [[ -n "${PS1}" ]] ; then
+	echo "Not GSA authenticated"
+    fi
+}
