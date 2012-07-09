@@ -13,9 +13,9 @@ if [[ "$DISPLAY" ]] ; then
     export DHOST=${DISPLAY%:*}
 fi
 
-if [[ -z "${rvm_path}" && -f /etc/profile.d/rvm.sh ]] ; then
-    source /etc/profile.d/rvm.sh
-fi
+# if [[ -z "${rvm_path}" && -f /etc/profile.d/rvm.sh ]] ; then
+#     source /etc/profile.d/rvm.sh
+# fi
 
 if [[ -f ~/.bash/bash_env ]] ; then
     source ~/.bash/bash_env
@@ -24,4 +24,3 @@ fi
 if [[ -f ~/.bash/bashrc ]] ; then
     source ~/.bash/bashrc
 fi
-
