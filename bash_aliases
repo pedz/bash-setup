@@ -11,7 +11,7 @@ fi
 alias h="history 10"
 alias lf="ls -F"
 alias ll="ls -lF"
-if [ -n "$DISPLAY" ] ; then
+if [[ -n "$DISPLAY" ]] ; then
   alias emacs="emacs -i"
 fi
 alias p=pushd

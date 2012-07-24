@@ -38,9 +38,13 @@ if [[ -n "$PS1" ]] ; then
     level=1
   fi
   export level
-  tty=`tty`
-  tty=`expr $tty : "/dev/\(.*\)"`
-  PS1="\u@\h<$level> on $tty\n"
+  if tty > /dev/null 2>&1 ; then
+    tty=`tty`
+    tty=`expr $tty : "/dev/\(.*\)"`
+    PS1="\u@\h<$level> on $tty\n"
+  else
+    notty=true
+  fi
 fi
 
 umask 002

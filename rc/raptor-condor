@@ -5,4 +5,5 @@ delete-path-elements '^/gsa/ausgsa/projects/r/ruby/prvm/'
 prepend-path /gsa/ausgsa/projects/r/ruby/prvm/ruby-1.9.3-p194/bin
 
 start-postgres
+prepend-path $local_base/aixbin
 . mkPKG_CONFIG_PATH
