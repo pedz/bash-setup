@@ -36,12 +36,12 @@ function prepend-path
 function start-postgres()
 {
     # Use prepend here to avoid Mac OS X's versions :-P
-    prepend-path /usr/local/pgsql/bin
+    prepend-path $local_base/pgsql/bin
 }
 
 function stop-postgres()
 {
-    delete-path /usr/local/pgsql/bin
+    delete-path $local_base/pgsql/bin
 }
 
 function start-ztrans()
@@ -129,7 +129,7 @@ function stop-cmvc()
     unset CMVC_RELEASE
     unset CMVC_TOP
     unset PROD
-    delete-path /usr/local/cmvc/bin
+    delete-path $local_base/cmvc/bin
 }
 
 function start-cmvc()
@@ -145,7 +145,7 @@ function start-cmvc()
     export PROD=bos
     export CMVC_FAMILY=aix
     export CMVC_BECOME=pedzan
-    append-path /usr/local/cmvc/bin
+    append-path $local_base/cmvc/bin
 }
 
 function stop-retain()
@@ -255,8 +255,8 @@ function dcd ()
 
 function put-local-last ()
 {
-    delete-path /usr/local/bin
-    append-path /usr/local/bin
+    delete-path $local_base/bin
+    append-path $local_base/bin
 }
 
 function start-cq()

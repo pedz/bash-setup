@@ -6,7 +6,7 @@
 [[ -n "${debug}" ]] && echo ./bash_set_path
 
 for i in \
-    /usr/local/bin \
+    $local_base/bin \
     /usr/ucb \
     /bin \
     /sbin \

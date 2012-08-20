@@ -4,6 +4,7 @@
 export EXINIT=":set aw noic sm ai sw=4"
 export EDITOR="${EDITOR:-/usr/bin/vi}"
 export VISUAL=/usr/bin/vi
+local_base=/usr/local
 
 if [[ -f ~/.bash/env/${HOSTNAME%%.*}-${USER} ]] ; then
     source ~/.bash/env/${HOSTNAME%%.*}-${USER}
