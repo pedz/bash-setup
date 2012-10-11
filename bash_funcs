@@ -145,7 +145,7 @@ function start-cmvc()
     export PROD=bos
     export CMVC_FAMILY=aix
     export CMVC_BECOME=pedzan
-    append-path $local_base/cmvc/bin
+    append-path ${cmvc_base:-${local_base}/cmvc/bin}
 }
 
 function stop-retain()

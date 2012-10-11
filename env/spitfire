@@ -7,6 +7,7 @@ if [[ -n "$PS1" && "$TERM" == xterm-color ]]; then
     TERM=xterm
 fi
 
+cmvc_base=/gsa/ausgsa/projects/a/aix_tools/bin/cmvc
 export MANPATH=\
 /usr/man:\
 /usr/local/man:\
