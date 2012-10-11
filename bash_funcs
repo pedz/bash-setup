@@ -172,7 +172,7 @@ function stop-retain()
 
 function start-retain()
 {
-    local hpath="${HPATH:-/gsa/ausgsa/projects/s/service/usr/bin/retain}"
+    local hpath="${HPATH:-/gsa/ausgsa/projects/s/service/usr/bin/retain/}"
     stop-retain
 
     export CENTER=165
@@ -189,7 +189,7 @@ function start-retain()
     export SCROWNER="Perry Smith T/L 363-8630"
     export SCRTEAM="ptty,165"
 
-    prepend-path "${HPATH}"
+    append-path "${HPATH}"
     alias retain='hlogin -q ${RETQUEUE} -r ${RETID}'
 }
 
