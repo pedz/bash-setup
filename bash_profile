@@ -1,6 +1,7 @@
 
 # debug=1
 [[ -n "${debug}" ]] && echo ./bash_profile
+echo "$(date) .bash_profile" >> .log
 
 #
 # %W%

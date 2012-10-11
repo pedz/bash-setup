@@ -137,7 +137,7 @@ function start-cmvc()
     local cmvc_release="$CMVC_RELEASE"
     stop-cmvc
     export CMVC_RELEASE="$cmvc_release"
-    if [ -z "$CMVC_RELEASE" ] ; then
+    if [[ -z "$CMVC_RELEASE" ]] ; then
 	export CMVC_RELEASE=bos530
 	export blob="$blob 1"
     fi
