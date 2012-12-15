@@ -116,9 +116,6 @@ function prvm_use
 	prvmrc_path="$temp"
     done
 
-    echo "ruby=$ruby"
-    echo "prvmrc_path=$prvmrc_path"
-
     # We want to delete what a previous prvm_use added.  This would be
     # some path to /**/.bundle/bin as well as /usr/local/prvm/**
     delete-path-elements '.*/\.bundle/bin$'
