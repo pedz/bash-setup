@@ -1,4 +1,6 @@
 
+[[ -n "${debug}" ]] && echo ./env/raptor-condor
+
 cmvc_base=/gsa/ausgsa/projects/a/aix_tools/bin/cmvc
 local_base=/gsa/ausgsa/projects/r/ruby
 export PGDATABASE=condor3_production
