@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 #!/bin/bash
 
 [[ -n "${debug}" ]] && echo ./bashrc
@@ -21,21 +22,9 @@ if [[ -z "$VALID_PATH_SET" ]] ; then
     . ~/.bash/bash_set_path
 fi
 
-# Now we include this in bash_profile
-#
-# We must call the rvm setup *after* setting up our path but before
-# calling the aliases because the aliases confuse the rvm scripts.
-# RVMRC="/usr/local/lib/rvm /etc/profile.d/rvm.sh"
-# if [[ -z "$rvm_path" ]] ; then
-#     for i in $RVMRC ; do
-# 	if [[ -s "$i" ]] ; then
-# 	    source "$i"
-# 	    break;
-# 	fi
-#     done
-# fi
-
 # create the post_cd function.  Must be done after rvmrc is loaded.
+# In the new style, rvmrc is loaded via start-rvm but we still need to
+# create the post_cd function.
 create_post_cd
 
 # needed to pick up any directory specific configuration.
@@ -50,15 +39,19 @@ if [[ -n "$PS1" ]] ; then
     level=1
   fi
   export level
-  tty=`tty`
-  tty=`expr $tty : "/dev/\(.*\)"`
-  PS1="\u@\h<$level> on $tty\n"
+  if tty > /dev/null 2>&1 ; then
+    tty=`tty`
+    tty=`expr $tty : "/dev/\(.*\)"`
+    PS1="\u@\h<$level> on $tty\n"
+  else
+    notty=true
+  fi
 fi
 
 umask 002
 
 if [[ -z "$CDPATH" ]] ; then
-  CDPATH=".:..:../..:../../..:../../../..:~"
+  CDPATH=":..:../..:../../..:../../../..:~"
 fi
 
 # A subshell from emacs does not start from the profile so suck in special environment

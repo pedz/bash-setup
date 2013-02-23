@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 
 [[ -n "${debug}" ]] && echo ./env/p51
 
@@ -7,14 +8,12 @@ if [[ -n "$PS1" && "$TERM" == xterm-color ]]; then
     TERM=xterm
 fi
 
+cmvc_base=/gsa/ausgsa/projects/a/aix_tools/bin/cmvc
 export MANPATH=\
 /usr/man:\
 /usr/local/man:\
 /usr/local/ssl/man:\
 /usr/local/share/man:\
 /usr/local/pgsql/man
-
-# path to local copy of retain tools on truth
-export HPATH=/usr/local/retain/
 
 source $HOME/.bash/env/aix

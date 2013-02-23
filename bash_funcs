@@ -1,6 +1,9 @@
+# -*- mode: shell-script -*-
 #!/bin/bash
 
 [[ -n "${debug}" ]] && echo ./bash_funcs
+
+[[ -f ~/.bash/bash_prvm ]] && source ~/.bash/bash_prvm
 
 function delete-path
 {
@@ -14,21 +17,15 @@ function append-path
     PATH="${PATH}:${1%/}"
 }
 
-function prepend-path
-{
-    delete-path "${1%/}"
-    PATH="${1%/}:${PATH}"
-}
-
 function start-postgres()
 {
     # Use prepend here to avoid Mac OS X's versions :-P
-    prepend-path /usr/local/pgsql/bin
+    prepend-path $local_base/pgsql/bin
 }
 
 function stop-postgres()
 {
-    delete-path /usr/local/pgsql/bin
+    delete-path $local_base/pgsql/bin
 }
 
 function start-ztrans()
@@ -116,7 +113,7 @@ function stop-cmvc()
     unset CMVC_RELEASE
     unset CMVC_TOP
     unset PROD
-    delete-path /usr/local/cmvc/bin
+    delete-path $local_base/cmvc/bin
 }
 
 function start-cmvc()
@@ -124,7 +121,7 @@ function start-cmvc()
     local cmvc_release="$CMVC_RELEASE"
     stop-cmvc
     export CMVC_RELEASE="$cmvc_release"
-    if [ -z "$CMVC_RELEASE" ] ; then
+    if [[ -z "$CMVC_RELEASE" ]] ; then
 	export CMVC_RELEASE=bos530
 	export blob="$blob 1"
     fi
@@ -132,7 +129,7 @@ function start-cmvc()
     export PROD=bos
     export CMVC_FAMILY=aix
     export CMVC_BECOME=pedzan
-    append-path /usr/local/cmvc/bin
+    append-path ${cmvc_base:-${local_base}/cmvc/bin}
 }
 
 function stop-retain()
@@ -159,7 +156,7 @@ function stop-retain()
 
 function start-retain()
 {
-    local hpath="${HPATH:-/gsa/ausgsa/projects/s/service/usr/bin/retain}"
+    local hpath="${HPATH:-/gsa/ausgsa/projects/s/service/usr/bin/retain/}"
     stop-retain
 
     export CENTER=165
@@ -176,7 +173,7 @@ function start-retain()
     export SCROWNER="Perry Smith T/L 363-8630"
     export SCRTEAM="ptty,165"
 
-    prepend-path "${HPATH}"
+    append-path "${HPATH}"
     alias retain='hlogin -q ${RETQUEUE} -r ${RETID}'
 }
 
@@ -187,8 +184,8 @@ function back()
 
 function create_post_cd()
 {
-# If we are on a host that has rvm, then post_cd will
-# execute rvm's cd command with "." as its argument
+    # If we are on a host that has rvm, then post_cd will
+    # execute rvm's cd command with "." as its argument
     if [[ $( type -t __rvm_project_rvmrc ) = "function" ]] ; then
         # create "rvm_cd" to be rvm's original cd.  We change the name
 	# to _pedz_rvm_cd, we remove the call to the builtin cd, and
@@ -202,7 +199,7 @@ function create_post_cd()
 	    _pedz_rvm_cd
 	}
 
-  # In this case, we also redefine popd:
+        # In this case, we also redefine popd:
 	function popd ()
 	{
 	    builtin popd "$@"
@@ -222,44 +219,168 @@ function create_post_cd()
 
 function dcd ()
 {
-  local cmd="$1"
-  shift
-  case $# in
-    0) builtin "$cmd";;
-    1) builtin "$cmd" "$1";;
-    2) local where=$( echo "${PWD}" | sed -e "s%$1%$2%" )
-       echo "${where}"
-       builtin "$cmd" $( echo "${PWD}" | sed -e "s%$1%$2%" );;
-    *) echo "Too many arguments to $cmd" 1>&2
-       return 1;;
-  esac
-  local result=$?
-  if [[ "$result" -eq 0 ]] ; then
-    post_cd
-  fi
-  return $result
+    local cmd="$1"
+    shift
+    case $# in
+	0) builtin "$cmd";;
+	1) builtin "$cmd" "$1";;
+	2)  local where=$( echo "${PWD}" | sed -e "s%$1%$2%" );
+	    echo "${where}";
+	    builtin "$cmd" "${where}";;
+	*) echo "Too many arguments to $cmd" 1>&2
+	    return 1;;
+    esac
+    local result=$?
+    if [[ "$result" -eq 0 ]] ; then
+	post_cd
+    fi
+    return $result
 }
 
 function put-local-last ()
 {
-    delete-path /usr/local/bin
-    append-path /usr/local/bin
+    delete-path $local_base/bin
+    append-path $local_base/bin
 }
 
 function start-cq()
 {
-  export CQCMD_AUTHMETHOD=netrc
-  export CQCMD_SCHEMA=STGC_AIX
-  export CQCMD_DATABASE=AIXOS
-  export CQCMD_HOST=auscqweb.austin.ibm.com
+    export CQCMD_AUTHMETHOD=netrc
+    export CQCMD_SCHEMA=STGC_AIX
+    export CQCMD_DATABASE=AIXOS
+    export CQCMD_HOST=auscqweb.austin.ibm.com
 
-  export CONFIGURATION_MANAGER=cq
-  export CMVC_FAMILY=aix
-  export CMVC_BECOME=your_cmvc_id
+    export CONFIGURATION_MANAGER=cq
+    export CMVC_FAMILY=aix
+    export CMVC_BECOME=your_cmvc_id
 
-  append-path /gsa/ausgsa/projects/a/aixtools/bin
-  append-path /opt/rational/clearcase/bin
-  append-path /usr/atria/bin
+    append-path /gsa/ausgsa/projects/a/aixtools/bin
+    append-path /opt/rational/clearcase/bin
+    append-path /usr/atria/bin
 
-  . /opt/rational/clearquest/cq_setup.sh
+    . /opt/rational/clearquest/cq_setup.sh
+}
+
+function start-rvm()
+{
+    if [[ -z "${rvm_path}" && -f /etc/profile.d/rvm.sh ]] ; then
+	local need_alias=
+	if [[ $( type -t cd ) == "alias" ]] ; then
+	    need_alias=t
+	    unalias cd
+	fi
+	source /etc/profile.d/rvm.sh
+	create_post_cd
+	if [[ $need_alias ]] ; then
+	    alias cd='dcd cd'
+	fi
+	post_cd
+    fi
+}
+
+# stop-rvm will likely do only a half ass job of unhooking all of
+# rvm's tentacles
+function stop-rvm()
+{
+    if [[ $( type -t __rvm_project_rvmrc ) = "function" ]] ; then
+	rvm system
+	local need_alias=
+	if [[ $( type -t cd ) == "alias" ]] ; then
+	    need_alias=t
+	    unalias cd
+	fi
+	unset __rvm_project_rvmrc
+	unset rvm
+	unset rvm_path
+	create_post_cd
+	if [[ $need_alias ]] ; then
+	    alias cd='dcd cd'
+	fi
+	post_cd
+    fi
+}
+
+function clean_path
+{
+    # set -x
+    # make_log "clean_path: $1"
+
+    # .. at the front should not get consumed by .. later on
+    # the dotdot_index is the index of the last leading dotdot
+    typeset -i arg_index=0 result_index=-1 dotdot_index=-1
+    typeset arg_array result_array
+
+    # We set IFS to / to split the path into an array
+    typeset TIFS="$IFS"
+    IFS=/
+    declare -a arg_array=( $1 )
+
+    typeset -i arg_length="${#arg_array[*]}"
+    while [[ $arg_index -lt $arg_length ]] ; do
+	typeset comp="${arg_array[$arg_index]}"
+        # a dotdot eats the last component except when it would eat
+        # another dotdot
+	if [[ "$comp" == "." ]] ; then
+	    true
+	elif [[ "$comp" == ".." && $result_index -gt $dotdot_index ]] ; then
+	    unset result_array[$result_index]
+	    let "result_index = result_index - 1"
+	else
+	    let "result_index = result_index + 1"
+	    result_array[$result_index]="$comp"
+	    if [[ "$comp" == ".." || "$comp" == "" ]] ; then
+		let "dotdot_index = dotdot_index + 1"
+	    fi
+	fi
+	let "arg_index = arg_index + 1"
+    done
+    typeset result="${result_array[*]}"
+    IFS="$TIFS"
+    if [[ "$result" = "" ]] ; then
+        # /a/.. results in "" which needs to be changed to /
+	if [[ $result_index -eq 0 ]] ; then
+	    result=/
+        # a/.. results in "" which needs to be changed to .
+	else
+	    result=.
+	fi
+    fi
+    # make_log "clean_path result=$result"
+    echo "$result"
+}
+
+function absolute_path
+{
+    typeset path="$1"
+    typeset prefix="$2"
+    
+    if [[ "$path" =~ ^/.* ]] ; then
+	echo hi
+    else
+	path="$prefix/$path"
+    fi
+    clean_path "$path"
+}
+
+function autolog()
+{
+    if [[ -z "$GSA_MAGIC" ]] ; then
+	logger_file=/tc/user1/pedzan/.gsa_logger
+	if [[ ! -r "${logger_file}" ]] ; then
+	    hostname=$( hostname )
+	    logger_file=/tc/user1/pedzan/.gsa/${hostname%%.*}
+	    if [[ ! -r "${logger_file}" ]] ; then
+		unset logger_file
+	    fi
+	fi
+	if [[ -n "${logger_file}" ]] ; then
+	    unset level
+	    export GSA_MAGIC=$1
+	    shift
+	    exec gsa_logger pedzan "${logger_file}" ${GSA_MAGIC#-} bash -li "$@"
+	fi
+    fi
+    if [[ -n "${PS1}" ]] ; then
+	echo "Not GSA authenticated"
+    fi
 }

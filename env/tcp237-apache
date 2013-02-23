@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 
 [[ -n "${debug}" ]] && echo ./env/tcp237-apache
 
