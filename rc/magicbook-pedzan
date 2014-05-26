@@ -1,0 +1,23 @@
+function snapper 
+{
+  cd ~/Source/Ruby/snapper
+  . .prvmrc
+}
+
+function condor3 
+{
+  cd ~/Source/Rails3/condor3
+  . .prvmrc
+}
+
+function condor 
+{
+  cd ~/Source/Rails/condor
+  . .prvmrc
+}
+
+function raptor 
+{
+  start-rvm
+  cd ~/Source/Rails/raptor
+}
