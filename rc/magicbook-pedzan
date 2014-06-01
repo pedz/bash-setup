@@ -20,4 +20,5 @@ function raptor
 {
   start-rvm
   cd ~/Source/Rails/raptor
+  export PGDATABASE=raptor_development
 }
