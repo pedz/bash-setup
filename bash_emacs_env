@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 
 unset EXINIT
 unset VISUAL

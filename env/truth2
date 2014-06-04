@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 
 [[ -n "${debug}" ]] && echo ./env/truth2
 
@@ -9,4 +10,4 @@ export MANPATH=\
 /usr/local/share/man
 
 source $HOME/.bash/env/aix
-export TCDIR=/tc/pedzan
+export TCDIR=/tc/user1/pedzan

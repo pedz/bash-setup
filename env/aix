@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 #!/bin/bash
 
 [[ -n "${debug}" ]] && echo ./env/aix

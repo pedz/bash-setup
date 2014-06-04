@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 
 # debug=1
 [[ -n "${debug}" ]] && echo ./bash_profile

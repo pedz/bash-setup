@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 #!/bin/bash
 
 [[ -n "${debug}" ]] && echo ./bashrc
@@ -5,7 +6,8 @@
 all="{.[0-~]*,..?*,*}"
 
 history_control=ignoredups
-HISTSIZE=1024
+HISTSIZE=32768
+HISTCONTROL=erasedups
 hostname_completion_file=/etc/hosts
 auto_resume=""
 set -o notify
