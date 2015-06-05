@@ -8,3 +8,5 @@ start-retain
 start-cmvc
 start-rp2
 start-postgres
+delete-path /usr/local/bin
+prepend-path /usr/local/bin
