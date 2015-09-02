@@ -47,3 +47,5 @@ gsa_aixlevel 61B
 gsa_aixlevel 61D
 gsa_aixlevel 61F
 gsa_aixlevel 61H
+
+export PAGER=less

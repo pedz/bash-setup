@@ -92,11 +92,14 @@ function prepend-path
     fi
 }
 
-# $1 specifies which ruby to use.  e.g. prvm_use ruby-1.9.3-p194
-function prvm_use
+# $1 specifies which ruby to use and $2 specifies the directory
+function prvm_setup
 {
     typeset ruby="$1"
-    typeset prvmrc_path="${BASH_SOURCE[1]}"
+    typeset prvmrc_path="$2"
+    typeset cwd="${PWD}"
+    typeset prvmrc_dir
+    typeset temp
 
     if [[ "$prvmrc_path" =~ ^/.* ]] ; then
 	true
@@ -115,17 +118,39 @@ function prvm_use
 	fi
 	prvmrc_path="$temp"
     done
+    prvmrc_dir=${prvmrc_path%/.*}
 
     # We want to delete what a previous prvm_use added.  This would be
     # some path to /**/.bundle/bin as well as /usr/local/prvm/**
     delete-path-elements '.*/\.bundle/bin$'
     delete-path-elements "${PRVM_BASE}/.*"
 
+    cd "${prvmrc_dir}"
+
     # Now add in the new path pieces
     prepend-path "${PRVM_BASE}/${ruby}/bin"
-    prepend-path "${prvmrc_path%/.*}/.bundle/bin"
 
-    # Finally set up ruby's exports
-    export GEM_HOME="${prvmrc_path%/.*}/.bundle/gems/ruby/1.9.1"
-    export GEM_PATH="${PRVM_BASE}/${ruby}/lib/ruby/gems/1.9.1"
+    if type -t bundle > /dev/null && bundle exec true > /dev/null 2>&1 ; then
+	temp=$( bundle exec env |
+		egrep 'GEM_HOME' |
+		sed -e 's%^%export %' -e "s%=%='%" -e "s%$%';%" )
+	eval $temp
+    fi
+
+    prepend-path "${GEM_HOME}/bin"
+    prepend-path "${prvmrc_dir}/.bundle/bin"
+    if [[ -d "${prvmrc_dir}/bin" ]] ; then
+	prepend-path "${prvmrc_dir}/bin"
+    fi
+}
+
+# $1 specifies which ruby to use.  e.g. prvm_use ruby-1.9.3-p194
+function prvm_use
+{
+    prvm_setup "$1" "${BASH_SOURCE[1]}"
+}
+
+function bundle_install
+{
+    bundle install --path .bundle/gems --binstubs .bundle/bin
 }

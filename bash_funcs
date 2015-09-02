@@ -362,17 +362,23 @@ function absolute_path
     clean_path "$path"
 }
 
+function gsa_logger_file()
+{
+    typeset logger_file=/tc/user1/pedzan/.gsa_logger
+    if [[ ! -r "${logger_file}" ]] ; then
+	hostname=$( hostname )
+	logger_file=/tc/user1/pedzan/.gsa/${hostname%%.*}
+	if [[ ! -r "${logger_file}" ]] ; then
+	    logger_file=""
+	fi
+    fi
+    echo $logger_file
+}
+
 function autolog()
 {
     if [[ -z "$GSA_MAGIC" ]] ; then
-	logger_file=/tc/user1/pedzan/.gsa_logger
-	if [[ ! -r "${logger_file}" ]] ; then
-	    hostname=$( hostname )
-	    logger_file=/tc/user1/pedzan/.gsa/${hostname%%.*}
-	    if [[ ! -r "${logger_file}" ]] ; then
-		unset logger_file
-	    fi
-	fi
+        typeset logger_file=$( gsa_logger_file )
 	if [[ -n "${logger_file}" ]] ; then
 	    unset level
 	    export GSA_MAGIC=$1

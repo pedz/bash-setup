@@ -8,3 +8,5 @@ start-retain
 start-cmvc
 start-rp2
 start-postgres
+
+. ~/bin/goto-dump
