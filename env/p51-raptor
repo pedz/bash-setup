@@ -1,2 +1,6 @@
+# -*- mode: shell-script -*-
+
+[[ -n "${debug}" ]] && echo ./env/p51-raptor
+
 export PGDATABASE=raptor_production
 export RAILS_ENV=production

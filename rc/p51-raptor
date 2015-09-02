@@ -1,0 +1,4 @@
+# -*- mode: shell-script -*-
+[[ -n "${debug}" ]] && echo ./rc/p51-raptor
+
+prepend-path /usr/local/prvm/ruby-1.9.3-p392/bin
