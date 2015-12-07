@@ -1,5 +1,4 @@
 # -*- mode: shell-script -*-
-#!/bin/bash
 #
 # intended to be included at login or startup time by bashrc.
 #
