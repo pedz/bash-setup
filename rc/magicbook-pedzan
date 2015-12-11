@@ -1,3 +1,7 @@
+# -*- mode: shell-script -*-
+
+[[ -n "${debug}" ]] && echo ./rc/magicbook-pedzan
+
 function snapper 
 {
   cd ~/Source/Ruby/snapper

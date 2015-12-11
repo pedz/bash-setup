@@ -1,4 +1,7 @@
 # -*- mode: shell-script -*-
+
+[[ -n "${debug}" ]] && echo ./bash_prvm
+
 #
 # File of functions specifically for prvm
 #
