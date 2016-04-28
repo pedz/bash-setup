@@ -1,5 +1,5 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./env/quinta
+[[ -n "${debug}" ]] && echo ./env/truth
 
 source ~/.bash/env/qta-common

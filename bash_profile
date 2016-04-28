@@ -4,20 +4,9 @@
 [[ -n "${debug}" ]] && echo ./bash_profile
 # echo "$(date) .bash_profile" >> .log
 
-#
-# %W%
-#
-
-# Don't recall what this is for.
-# export CCP=NLS
-
 if [[ "$DISPLAY" ]] ; then
     export DHOST=${DISPLAY%:*}
 fi
-
-# if [[ -z "${rvm_path}" && -f /etc/profile.d/rvm.sh ]] ; then
-#     source /etc/profile.d/rvm.sh
-# fi
 
 if [[ -f ~/.bash/bash_env ]] ; then
     source ~/.bash/bash_env

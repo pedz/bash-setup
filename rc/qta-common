@@ -1,0 +1,12 @@
+# -*- mode: shell-script -*-
+
+[[ -n "${debug}" ]] && echo ./rc/qta-common
+
+start-v4
+start-gsa
+start-retain
+start-cmvc
+start-rp2
+
+prepend-path /gsa/ausgsa/projects/r/ruby/bin
+prepend-path /gsa/ausgsa/projects/r/ruby/prvm/ruby-2.2.3/bin

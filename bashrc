@@ -1,5 +1,4 @@
 # -*- mode: shell-script -*-
-#!/bin/bash
 
 [[ -n "${debug}" ]] && echo ./bashrc
 
@@ -22,14 +21,6 @@ if [[ -f ~/.bash/bash_funcs ]] ; then source ~/.bash/bash_funcs; fi
 if [[ -z "$VALID_PATH_SET" ]] ; then
     . ~/.bash/bash_set_path
 fi
-
-# create the post_cd function.  Must be done after rvmrc is loaded.
-# In the new style, rvmrc is loaded via start-rvm but we still need to
-# create the post_cd function.
-create_post_cd
-
-# needed to pick up any directory specific configuration.
-post_cd
 
 if [[ -f ~/.bash/bash_aliases ]] ; then source ~/.bash/bash_aliases; fi
 

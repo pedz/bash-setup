@@ -1,5 +1,7 @@
 # -*- mode: shell-script -*-
 
+[[ -n "${debug}" ]] && echo ./bash_emacs_env
+
 unset EXINIT
 unset VISUAL
 
