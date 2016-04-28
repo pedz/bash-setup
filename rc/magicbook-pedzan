@@ -1,3 +1,9 @@
+function lab-rat 
+{
+  cd ~/Source/Ruby/lab-rat
+  . .prvmrc
+}
+
 function snapper 
 {
   cd ~/Source/Ruby/snapper
