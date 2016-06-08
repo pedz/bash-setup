@@ -97,12 +97,12 @@ function start-v4()
 
 function start-rp2()
 {
-    append-path /gsa/ausgsa/projects/a/aix_tools/bin
+    append-path /gsa/ausgsa/projects/a/aixtools/bin
 }
 
 function stop-rp2()
 {
-    delete-path /gsa/ausgsa/projects/a/aix_tools/bin
+    delete-path /gsa/ausgsa/projects/a/aixtools/bin
 }
 
 function stop-cmvc()
