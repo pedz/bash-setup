@@ -13,3 +13,4 @@ source $HOME/.bash/env/aix
 export TCDIR=/tc/user1/pedzan
 local_base=/gsa/ausgsa/projects/r/ruby
 cmvc_base=/gsa/ausgsa/projects/a/aix_tools/bin/cmvc
+export LESS=RSXn
