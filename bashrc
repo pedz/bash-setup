@@ -5,6 +5,7 @@
 all="{.[0-~]*,..?*,*}"
 
 history_control=ignoredups
+HISTFILE=~/.bash_history.$HOSTNAME
 HISTSIZE=32768
 HISTCONTROL=erasedups
 hostname_completion_file=/etc/hosts
