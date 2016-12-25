@@ -3,3 +3,5 @@
 [[ -n "${debug}" ]] && echo ./rc/truth
 
 source ~/.bash/rc/qta-common
+first-return
+trap last-leave EXIT

@@ -317,3 +317,24 @@ function term-title()
 {
   printf "\033]0;%s\007" "$1"
 }
+
+function need-return-leave()
+{
+  if [[ -z "$PS1" || -z "$tty" ]] ; then
+    return 1
+  fi
+  if last $USER | head -20 | grep -v $tty | grep 'still logged' > /dev/null ; then
+    return 1
+  fi 2> /dev/null
+  return 0
+}
+
+function first-return()
+{
+  need-return-leave && Returning
+}
+
+function last-leave()
+{
+  need-return-leave && Leaving
+}
