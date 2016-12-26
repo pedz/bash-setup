@@ -329,6 +329,17 @@ function need-return-leave()
   return 0
 }
 
+function kill-last-return()
+{
+    tail -1 ~/.timelog | grep -q Return &&
+	ed - ~/.timelog << \EOF
+$d
+w
+q
+EOF
+    
+}
+
 function first-return()
 {
   need-return-leave && Returning
@@ -336,5 +347,7 @@ function first-return()
 
 function last-leave()
 {
-  need-return-leave && Leaving
+    need-return-leave &&
+	tail -1 ~/.timelog | grep -q Return &&
+	Leaving
 }
