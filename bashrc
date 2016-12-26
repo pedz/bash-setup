@@ -4,16 +4,19 @@
 
 all="{.[0-~]*,..?*,*}"
 
-history_control=ignoredups
-HISTFILE=~/.bash_history.$HOSTNAME
+# Set HISTFILE to a hostname specific path but not if Apple's Session
+# non-sense is enabled
+if [[ -z "${SHELL_SESSION_DID_INIT}" || ! shell_session_history_allowed ]] ; then
+  HISTFILE=~/.bash_history.$HOSTNAME
+fi
 HISTSIZE=32768
-HISTCONTROL=erasedups
-hostname_completion_file=/etc/hosts
+HISTCONTROL=erasedups:ignoredups
+HOSTFILE=/etc/hosts
+
 auto_resume=""
 set -o notify
 set -o emacs
-cdable_vars=
-command_oriented_history=
+shopt -s cdable_vars
 
 # The funcs are needed before bash_set_path is called.
 if [[ -f ~/.bash/bash_funcs ]] ; then source ~/.bash/bash_funcs; fi
