@@ -5,6 +5,11 @@
 unset EXINIT
 unset VISUAL
 
-export PAGER=cat
-export EDITOR="${EDITOR:-emacsclient}"
+if [[ -z "${PAGER}" || "${PAGER}" =~ more|less ]] ; then
+    export PAGER=cat
+fi
+# Override previous setting if set to vi
+if [[ -z "${EDITOR}" || "${EDITOR}" =~ vi ]] ; then
+    export EDITOR=emacsclient
+fi
 export EMACS_ENV=t
