@@ -323,7 +323,9 @@ function need-return-leave()
   if [[ -z "$PS1" || -z "$tty" ]] ; then
     return 1
   fi
-  if last $USER | head -20 | grep -v $tty | grep 'still logged' > /dev/null ; then
+
+  local today="$(last | head -1 | awk '{ printf("%s %s\n", $4, $5); }')"
+  if last | head -500 | grep "$USER.*$today" | grep -v $tty | grep 'still logged in' ; then
     return 1
   fi 2> /dev/null
   return 0
