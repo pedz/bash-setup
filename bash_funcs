@@ -325,7 +325,7 @@ function need-return-leave()
   fi
 
   local today="$(last | head -1 | awk '{ printf("%s %s\n", $4, $5); }')"
-  if last | head -500 | grep "$USER.*$today" | grep -v $tty | grep 'still logged in' ; then
+  if last | head -500 | grep "$USER.*$today" | grep -v $tty | grep -q 'still logged in' ; then
     return 1
   fi 2> /dev/null
   return 0
@@ -344,7 +344,9 @@ EOF
 
 function first-return()
 {
-  need-return-leave && Returning
+    need-return-leave &&
+	tail -1 ~/.timelog | grep -q Leaving &&
+	Returning
 }
 
 function last-leave()
