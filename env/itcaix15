@@ -1,0 +1,5 @@
+# -*- mode: shell-script -*-
+
+[[ -n "${debug}" ]] && echo ./env/itcaix15
+
+source ~/.bash/env/ecurep

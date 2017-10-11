@@ -1,0 +1,15 @@
+# -*- mode: shell-script -*-
+
+[[ -n "${debug}" ]] && echo ./rc/ecurep
+
+# start-v4
+# start-gsa
+# start-retain
+# start-cmvc
+# start-rp2
+
+delete-path /opt/freeware/bin
+prepend-path /gsa/ausgsa/projects/r/ruby/bin
+prepend-path /gsa/ausgsa/projects/r/ruby/prvm/ruby-2.2.3/bin
+prepend-path /common/public/tools/bin
+append-path /gsa/ausgsa/home/p/e/pedzan/bin
