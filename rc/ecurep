@@ -7,6 +7,11 @@
 # start-retain
 # start-cmvc
 # start-rp2
+function e-goto
+{
+  cd "$( echo "$1" | tr 'a-z' 'A-Z' | sed -e 's%^\(.\)\(.\)\(.*\)$%/ecurep/pmr/\
+1/\2/\1\2\3%' )"
+}
 
 delete-path /opt/freeware/bin
 prepend-path /gsa/ausgsa/projects/r/ruby/bin
