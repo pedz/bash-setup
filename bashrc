@@ -6,8 +6,9 @@ all="{.[0-~]*,..?*,*}"
 
 # Set HISTFILE to a hostname specific path but not if Apple's Session
 # non-sense is enabled
+mkdir -p ~/.bash_history.d
 if [[ -z "${SHELL_SESSION_DID_INIT}" || ! shell_session_history_allowed ]] ; then
-  HISTFILE=~/.bash_history.$HOSTNAME
+  HISTFILE=~/.bash_history.d/"${HOSTNAME%%.*}"
 fi
 HISTSIZE=32768
 HISTCONTROL=erasedups:ignoredups
