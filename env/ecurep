@@ -2,7 +2,6 @@
 
 [[ -n "${debug}" ]] && echo ./env/ecurep
 
-
 export MANPATH=\
 /usr/man:\
 /usr/local/man:\
@@ -10,7 +9,12 @@ export MANPATH=\
 /usr/local/share/man
 
 source $HOME/.bash/env/aix
-export TCDIR=/tc/user1/pedzan
-local_base=/gsa/ausgsa/projects/r/ruby
-cmvc_base=/gsa/ausgsa/projects/a/aix_tools/bin/cmvc
+export TCDIR=/users/p/e/pedzan/PMRs
+
+# This is too slow.
+# local_base=/gsa/ausgsa/projects/r/ruby
+
+# CMVC is not set up on ecurep
+# cmvc_base=/gsa/ausgsa/projects/a/aix_tools/bin/cmvc
+
 export LESS=RSXn

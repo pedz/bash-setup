@@ -15,9 +15,10 @@ function e-goto
   cd "$( echo "$1" | tr 'a-z' 'A-Z' | sed -e 's%^\(.\)\(.\)\(.*\)$%/ecurep/pmr/\1/\2/\1\2\3%' )"
 }
 
-delete-path /opt/freeware/bin
-prepend-path /gsa/ausgsa/projects/r/ruby/bin
-prepend-path /gsa/ausgsa/projects/r/ruby/prvm/ruby-2.2.3/bin
+prepend-path /users/p/e/pedzan/local/bin
 prepend-path /common/public/tools/bin
 prepend-path /usr/local/bin
+prepend-path ~/bin
+append-path /gsa/ausgsa/projects/r/ruby/bin
 append-path /gsa/ausgsa/home/p/e/pedzan/bin
+append-path /opt/freeware/bin
