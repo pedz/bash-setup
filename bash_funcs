@@ -355,3 +355,11 @@ function last-leave()
 	tail -1 ~/.timelog | grep -q Return &&
 	Leaving
 }
+
+# Takes a pmr 12345,abc,xyz and goes to the ecurep directory for that
+# PMR
+function e-goto
+{
+  cd "$( echo "$1" | tr 'a-z' 'A-Z' | sed -e 's%^\(.\)\(.\)\(.*\)$%/ecurep/pmr/\1/\2/\1\2\3%' )"
+}
+

@@ -8,13 +8,6 @@
 # start-cmvc
 # start-rp2
 
-# Takes a pmr 12345,abc,xyz and goes to the ecurep directory for that
-# PMR
-function e-goto
-{
-  cd "$( echo "$1" | tr 'a-z' 'A-Z' | sed -e 's%^\(.\)\(.\)\(.*\)$%/ecurep/pmr/\1/\2/\1\2\3%' )"
-}
-
 prepend-path /users/p/e/pedzan/local/bin
 prepend-path /common/public/tools/bin
 prepend-path /usr/local/bin
