@@ -294,6 +294,9 @@ function gsa_logger_file()
 	    logger_file=""
 	fi
     fi
+    if [[ -z "${logger_file}" && -r ~/.gsa/${hostname%%.*} ]] ; then
+	logger_file=~/.gsa/"${hostname%%.*}"
+    fi
     echo $logger_file
 }
 
@@ -302,10 +305,11 @@ function autolog()
     if [[ -z "$GSA_MAGIC" ]] ; then
         typeset logger_file=$( gsa_logger_file )
 	if [[ -n "${logger_file}" ]] ; then
+	    # set -x
 	    unset level
 	    export GSA_MAGIC=$1
 	    shift
-	    exec gsa_logger pedzan "${logger_file}" ${GSA_MAGIC#-} bash -li "$@"
+	    exec gsa_logger -c ausgsa pedzan "${logger_file}" ${GSA_MAGIC#-} bash -li "$@"
 	fi
     fi
     if [[ -n "${PS1}" ]] ; then
