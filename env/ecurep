@@ -18,3 +18,16 @@ export TCDIR=/users/p/e/pedzan/PMRs
 # cmvc_base=/gsa/ausgsa/projects/a/aix_tools/bin/cmvc
 
 export LESS=RSXn
+
+function home
+{
+  cd "$( pwd -P | sed -e 's%^\(/ecurep/pmr/././.....,...,.../\.pedzan\)/.*%\1%' )"
+}
+
+function all-steps
+{
+    new-setup.rb $1
+    e-goto $1
+    cd .pedzan
+    after-setup.sh
+}
