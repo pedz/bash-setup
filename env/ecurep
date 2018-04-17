@@ -26,7 +26,7 @@ function home
 
 function all-steps
 {
-    new-setup.rb $1
+    pmr-setup.rb $1
     e-goto $1
     cd .pedzan
     after-setup.sh
