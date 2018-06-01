@@ -367,3 +367,8 @@ function e-goto
   cd "$( echo "$1" | tr 'a-z' 'A-Z' | sed -e 's%^\(.\)\(.\)\(.*\)$%/ecurep/pmr/\1/\2/\1\2\3%' )"
 }
 
+function mkFILES
+{
+  rm -f .files
+  find . -type f -print | sort -u -o .files
+}
