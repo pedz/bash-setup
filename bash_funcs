@@ -370,5 +370,5 @@ function e-goto
 function mkFILES
 {
   rm -f .files
-  find -xdev . -type f -print | sort -u -o .files
+  find . -xdev -type f -print | sort -u -o .files
 }
