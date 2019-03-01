@@ -372,3 +372,18 @@ function mkFILES
   rm -f .files
   find . -xdev -type f -print | sort -u -o .files
 }
+
+function clean-os-gunk
+{
+    unset $( env | awk -F= '/OS_/ { print $1; }' )
+}
+
+function login-iam
+{
+    source ~/bin/login-omnia-cloud-iam-openrc.sh
+}
+
+function login-dev
+{
+    source ~/bin/login-omnia-cloud-dev-openrc.sh
+}
