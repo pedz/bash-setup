@@ -375,7 +375,6 @@ function mkFILES
 
 function clean-os-gunk
 {
-    clean-os-gunk
     unset $( env | awk -F= '/OS_/ { print $1; }' )
 }
 
@@ -387,5 +386,6 @@ function login-iam
 
 function login-dev
 {
+    clean-os-gunk
     source ~/bin/login-omnia-cloud-dev-openrc.sh
 }
