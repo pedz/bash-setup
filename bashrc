@@ -4,9 +4,13 @@
 
 all="{.[0-~]*,..?*,*}"
 
+[ -r "/etc/bashrc" ] && . "/etc/bashrc"
+
 # Set HISTFILE to a hostname specific path but not if Apple's Session
 # non-sense is enabled
 mkdir -p ~/.bash_history.d
+[[ -n "${debug}" ]] && echo "'${SHELL_SESSION_DID_INIT}'"
+[[ -n "${debug}" ]] && shell_session_history_allowed
 if [[ -z "${SHELL_SESSION_DID_INIT}" || ! shell_session_history_allowed ]] ; then
   HISTFILE=~/.bash_history.d/"${HOSTNAME%%.*}"
 fi
