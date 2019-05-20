@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./bashrc
+[[ -n "${debug}" ]] && echo ${BASH_SOURCE}
 
 all="{.[0-~]*,..?*,*}"
 
@@ -9,7 +9,7 @@ all="{.[0-~]*,..?*,*}"
 # Set HISTFILE to a hostname specific path but not if Apple's Session
 # non-sense is enabled
 mkdir -p ~/.bash_history.d
-[[ -n "${debug}" ]] && echo "'${SHELL_SESSION_DID_INIT}'"
+[[ -n "${debug}" ]] && echo "SHELL_SESSION_DID_INIT='${SHELL_SESSION_DID_INIT}'"
 [[ -n "${debug}" ]] && shell_session_history_allowed
 if [[ -z "${SHELL_SESSION_DID_INIT}" || ! shell_session_history_allowed ]] ; then
   HISTFILE=~/.bash_history.d/"${HOSTNAME%%.*}"
@@ -68,3 +68,8 @@ if [[ -f ~/.bash/rc/${HOSTNAME%%.*} ]] ; then
 fi
 
 if [[ -f ~/.bash/bash_ssh ]] ; then source ~/.bash/bash_ssh; fi
+
+if [[ "${PIPENV_ACTIVE}" -eq 1 && -d molecule ]] ; then
+    login-MBC
+    TMPDIR="${PWD}/.molecule"
+fi

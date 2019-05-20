@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./rc/qta-common
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 start-v4
 start-gsa

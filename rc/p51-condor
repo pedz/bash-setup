@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./rc/p51
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 start-v4
 start-gsa

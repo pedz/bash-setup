@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./bash_aliases
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 alias which="type -path"
 alias P=popd

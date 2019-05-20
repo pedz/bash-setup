@@ -1,5 +1,5 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./rc/quinta
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 source ~/.bash/rc/qta-common

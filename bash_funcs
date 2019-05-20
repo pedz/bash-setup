@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./bash_funcs
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 [[ -f ~/.bash/bash_prvm ]] && source ~/.bash/bash_prvm
 
@@ -370,7 +370,7 @@ function e-goto
 function mkFILES
 {
   rm -f .files
-  find . -xdev -type f -print | sort -u -o .files
+  find "$PWD" -xdev -type f -print | sort -u -o .files
 }
 
 function clean-os-gunk
@@ -388,4 +388,10 @@ function login-dev
 {
     clean-os-gunk
     source ~/bin/login-omnia-cloud-dev-openrc.sh
+}
+
+function login-MBC
+{
+    clean-os-gunk
+    source ~/bin/MBC.sh
 }

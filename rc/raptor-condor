@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./rc/raptor-condor
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 delete-path-elements '^/gsa/ausgsa/projects/r/ruby/prvm/'
 prepend-path /gsa/ausgsa/projects/r/ruby/prvm/ruby-1.9.3-p194/bin

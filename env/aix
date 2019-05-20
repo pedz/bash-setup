@@ -1,7 +1,7 @@
 # -*- mode: shell-script -*-
 #!/bin/bash
 
-[[ -n "${debug}" ]] && echo ./env/aix
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 function dfs_aixlevel
 {

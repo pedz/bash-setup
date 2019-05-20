@@ -1,4 +1,4 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./rc/itcaix16
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 source ~/.bash/rc/ecurep

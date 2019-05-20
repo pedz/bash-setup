@@ -2,7 +2,7 @@
 
 # debug=1
 
-[[ -n "${debug}" ]] && echo ./bash_profile
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 # echo "$(date) .bash_profile" >> .log
 

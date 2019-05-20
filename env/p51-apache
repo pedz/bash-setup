@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./env/p51-apache
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 if [[ -n "$PS1" && "$TERM" == xterm-color ]]; then
     stty erase '^?'

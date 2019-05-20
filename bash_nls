@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./bash_nls
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 
 export LANG=C

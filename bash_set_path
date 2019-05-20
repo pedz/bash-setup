@@ -3,7 +3,7 @@
 # intended to be included at login or startup time by bashrc.
 #
 
-[[ -n "${debug}" ]] && echo ./bash_set_path
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 for i in \
     $local_base/bin \
@@ -18,7 +18,7 @@ for i in \
     /usr/X11R6/bin \
     /usr/vac/bin \
     ; do
-    # [[ -n "${debug}" ]] && echo ./bash_set_path: $i
+    # [[ -n "${debug}" ]] && echo "${BASH_SOURCE}: ${i}"
     if [[ -d "$i" ]] ; then
 	append-path $i
     fi

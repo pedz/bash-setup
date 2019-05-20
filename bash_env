@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./bash_env
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 export EXINIT=":set aw noic sm ai sw=4"
 export EDITOR="${EDITOR:-/usr/bin/vi}"

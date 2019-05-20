@@ -1,4 +1,4 @@
 # -*- mode: shell-script -*-
-[[ -n "${debug}" ]] && echo ./rc/newtoy-pedz
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 start-postgres

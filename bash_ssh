@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./bash_ssh
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 SSH_FILE=~/.ssh/ssh-agent-${HOSTNAME%%.*}
 

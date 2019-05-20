@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ./env/truth2
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 
 export MANPATH=\
