@@ -1,6 +1,6 @@
 # -*- mode: shell-script -*-
 
-[[ -n "${debug}" ]] && echo ${BASH_SOURCE}
+[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
 
 all="{.[0-~]*,..?*,*}"
 
