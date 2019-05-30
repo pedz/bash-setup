@@ -72,4 +72,5 @@ if [[ -f ~/.bash/bash_ssh ]] ; then source ~/.bash/bash_ssh; fi
 if [[ "${PIPENV_ACTIVE}" -eq 1 && -d molecule ]] ; then
     login-MBC
     TMPDIR="${PWD}/.molecule"
+    mkdir -p "${TMPDIR}"
 fi
