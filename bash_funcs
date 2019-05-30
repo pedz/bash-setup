@@ -395,3 +395,8 @@ function login-MBC
     clean-os-gunk
     source ~/bin/MBC.sh
 }
+
+function change_color
+{
+    osascript ~/.bash/terminal_change_color.scpt
+}
