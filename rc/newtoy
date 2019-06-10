@@ -1,4 +1,0 @@
-# -*- mode: shell-script -*-
-[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
-
-prepend-path /Library/Frameworks/Python.framework/Versions/2.7/bin

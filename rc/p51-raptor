@@ -1,4 +1,0 @@
-# -*- mode: shell-script -*-
-[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
-
-prepend-path /usr/local/prvm/ruby-1.9.3-p392/bin

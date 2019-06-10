@@ -27,16 +27,6 @@ function stop-postgres()
     delete-path $local_base/pgsql/bin
 }
 
-function start-ztrans()
-{
-    append-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
-}
-
-function stop-ztrans()
-{
-    delete-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
-}
-
 function start-epkg()
 {
     append-path /gsa/ausgsa/projects/c/cjhs/labr
@@ -202,24 +192,6 @@ function put-local-last ()
 {
     delete-path $local_base/bin
     append-path $local_base/bin
-}
-
-function start-cq()
-{
-    export CQCMD_AUTHMETHOD=netrc
-    export CQCMD_SCHEMA=STGC_AIX
-    export CQCMD_DATABASE=AIXOS
-    export CQCMD_HOST=auscqweb.austin.ibm.com
-
-    export CONFIGURATION_MANAGER=cq
-    export CMVC_FAMILY=aix
-    export CMVC_BECOME=your_cmvc_id
-
-    append-path /gsa/ausgsa/projects/a/aixtools/bin
-    append-path /opt/rational/clearcase/bin
-    append-path /usr/atria/bin
-
-    . /opt/rational/clearquest/cq_setup.sh
 }
 
 function clean_path
