@@ -74,3 +74,7 @@ if [[ "${PIPENV_ACTIVE}" -eq 1 && -d molecule ]] ; then
     TMPDIR="${PWD}/.molecule"
     mkdir -p "${TMPDIR}"
 fi
+
+for f in ~/.bash/autocomplete/* ; do
+    . "$f"
+done
