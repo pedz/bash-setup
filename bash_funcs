@@ -350,22 +350,10 @@ function clean-os-gunk
     unset $( env | awk -F= '/OS_/ { print $1; }' )
 }
 
-function login-iam
+function login-WDC1
 {
     clean-os-gunk
-    source ~/bin/login-omnia-cloud-iam-openrc.sh
-}
-
-function login-dev
-{
-    clean-os-gunk
-    source ~/bin/login-omnia-cloud-dev-openrc.sh
-}
-
-function login-MBC
-{
-    clean-os-gunk
-    source ~/bin/MBC.sh
+    source ~/bin/WDC1.sh
 }
 
 function change_color
