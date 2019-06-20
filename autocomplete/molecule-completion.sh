@@ -13,12 +13,12 @@ _molecule_hosts()
     while [[ $index -le "$COMP_CWORD" ]] ; do
 	local word="${COMP_WORDS[index]}"
 	if [[ $word == "-s" || "$word" == "--scenario-name" ]] ; then
-	    echo  "2 ${word}" >> .debug
+	    # echo  "2 ${word}" >> .debug
 	    scenario="-s${COMP_WORDS[index+1]}"
 	    break
 	fi
 	if [[ $word == -s* || "$word" == --scenario-name=* ]] ; then
-	    echo  "1 ${word}" >> .debug
+	    # echo  "1 ${word}" >> .debug
 	    scenario="${word}"
 	    break
 	fi
@@ -35,7 +35,7 @@ _molecule()
     local cur="${COMP_WORDS[COMP_CWORD]}"
     local prev="${COMP_WORDS[COMP_CWORD - 1]}"
 
-    rm -f .debug
+    # rm -f .debug
     if [[ "$cur" == -h* || "$cur" == --host=* ]] ; then
 	local list="$( _molecule_hosts )"
 	local prefix
@@ -43,7 +43,7 @@ _molecule()
 	    -h*) prefix="-h";;
 	    *) prefix="--host=";;
 	esac
-	echo "'${cur#"$prefix"}'" >> .debug
+	# echo "'${cur#"$prefix"}'" >> .debug
 	COMPREPLY=( $(compgen -W "${list}" -P "${prefix}" -- ${cur#"$prefix"}) )
     	return 0
     fi
