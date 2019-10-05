@@ -1,4 +1,0 @@
-# -*- mode: shell-script -*-
-
-[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
-source ~/.bash/rc/ecurep

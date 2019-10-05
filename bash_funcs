@@ -27,16 +27,6 @@ function stop-postgres()
     delete-path $local_base/pgsql/bin
 }
 
-function start-ztrans()
-{
-    append-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
-}
-
-function stop-ztrans()
-{
-    delete-path /.../austin.ibm.com/fs/proj/p6/ztrans/bin
-}
-
 function start-epkg()
 {
     append-path /gsa/ausgsa/projects/c/cjhs/labr
@@ -204,24 +194,6 @@ function put-local-last ()
     append-path $local_base/bin
 }
 
-function start-cq()
-{
-    export CQCMD_AUTHMETHOD=netrc
-    export CQCMD_SCHEMA=STGC_AIX
-    export CQCMD_DATABASE=AIXOS
-    export CQCMD_HOST=auscqweb.austin.ibm.com
-
-    export CONFIGURATION_MANAGER=cq
-    export CMVC_FAMILY=aix
-    export CMVC_BECOME=your_cmvc_id
-
-    append-path /gsa/ausgsa/projects/a/aixtools/bin
-    append-path /opt/rational/clearcase/bin
-    append-path /usr/atria/bin
-
-    . /opt/rational/clearquest/cq_setup.sh
-}
-
 function clean_path
 {
     # set -x
@@ -378,22 +350,10 @@ function clean-os-gunk
     unset $( env | awk -F= '/OS_/ { print $1; }' )
 }
 
-function login-iam
+function login-WDC1
 {
     clean-os-gunk
-    source ~/bin/login-omnia-cloud-iam-openrc.sh
-}
-
-function login-dev
-{
-    clean-os-gunk
-    source ~/bin/login-omnia-cloud-dev-openrc.sh
-}
-
-function login-MBC
-{
-    clean-os-gunk
-    source ~/bin/MBC.sh
+    source ~/bin/WDC1.sh
 }
 
 function change_color

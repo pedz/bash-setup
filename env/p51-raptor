@@ -1,6 +1,0 @@
-# -*- mode: shell-script -*-
-
-[[ -n "${debug}" ]] && echo "${BASH_SOURCE}"
-
-export PGDATABASE=raptor_production
-export RAILS_ENV=production
