@@ -18,6 +18,6 @@ if [[ -f ~/.bash/bashrc ]] ; then
     source ~/.bash/bashrc
 fi
 
-if [[ -z $INSIDE_EMACS && -t 0 && -t 1 && -r ~/.bash/terminal_change_color.scpt ]] && command -v osascript > /dev/null ; then
+if [[ -z $INSIDE_EMACS && -z $SSH_CLIENT && -r ~/.bash/terminal_change_color.scpt ]] && command -v osascript > /dev/null ; then
     change_color
 fi
