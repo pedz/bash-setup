@@ -56,9 +56,9 @@ if [[ -z "$CDPATH" ]] ; then
 fi
 
 # A subshell from emacs does not start from the profile so suck in special environment
-if [[ "x${EMACS}" = "xt" && -f ~/.bash/bash_emacs_env && "x${EMACS_ENV}" = "x" ]] ; then
-    source ~/.bash/bash_emacs_env
-fi
+# if [[ "x${EMACS}" = "xt" && -f ~/.bash/bash_emacs_env && "x${EMACS_ENV}" = "x" ]] ; then
+#     source ~/.bash/bash_emacs_env
+# fi
 
 if [[ -f ~/.bash/rc/${HOSTNAME%%.*}-${USER} ]] ; then
     source ~/.bash/rc/${HOSTNAME%%.*}-${USER}
